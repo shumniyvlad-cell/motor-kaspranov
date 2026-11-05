@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>МОТОР — киноуниверситет Артура Каспранова</title>
-<meta name="description" content="Онлайн-университет актёрского мастерства Артура Каспранова. Четыре факультета, мастерская по приглашению и кастинг-агентство.">
+<title>Лицо без грима — школа актёрского мастерства Артура Каспранова</title>
+<meta name="description" content="Онлайн-школа актёрского мастерства Артура Каспранова. Четыре факультета, мастерская по приглашению и агентство.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="МОТОР — киноуниверситет Артура Каспранова">
-<meta property="og:description" content="Четыре факультета, три этажа, финал на пробах.">
+<meta property="og:title" content="Лицо без грима — школа актёрского мастерства Артура Каспранова">
+<meta property="og:description" content="Четыре факультета, три этажа, финал на пробах.">
 <meta property="og:image" content="img/portrait.jpg">
 <meta name="theme-color" content="#0b0b0b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,8 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink);color:var(--paper);-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{background:var(--ink);font:400 16px/1.55 var(--sans);overflow-x:hidden}
+p,li,h3,h4,summary{text-wrap:pretty}
+.card h3,.agency .big{text-wrap:balance}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit;color:inherit}
@@ -79,9 +81,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:
   radial-gradient(60% 70% at 72% 55%,rgba(229,40,27,.20),transparent 60%),
   radial-gradient(40% 50% at 30% 40%,rgba(236,230,218,.05),transparent 70%),#0b0b0b}
-.hero .title{position:absolute;left:0;right:0;top:15%;text-align:center;font:900 clamp(120px,29vw,470px)/.78 var(--cond);
+.hero .title{position:absolute;left:var(--pad);right:auto;top:13%;text-align:left;font:900 clamp(120px,25vw,420px)/.78 var(--cond);
   letter-spacing:-.01em;color:var(--paper);z-index:1;user-select:none}
-.hero .who{position:absolute;z-index:2;bottom:0;left:50%;transform:translateX(-30%);height:84%;width:auto;max-width:none;
+.hero .who{position:absolute;z-index:2;bottom:0;left:50%;transform:translateX(-14%);height:86%;width:auto;max-width:none;
   filter:brightness(.86) contrast(1.08) drop-shadow(-30px 0 60px rgba(0,0,0,.6));
   -webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 70%,transparent 100%)}
 .hero .rim{position:absolute;z-index:3;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 55%,rgba(229,40,27,.16) 80%,transparent);mix-blend-mode:screen}
@@ -94,13 +96,21 @@ button,input,select,textarea{font:inherit;color:inherit}
 .vf .tl,.vf .tr{position:absolute;top:14px;display:flex;gap:18px;align-items:center}
 .vf .tl{left:54px}.vf .tr{right:54px;color:var(--dim)}
 .vf .tc{color:var(--paper)}
-.vf .focus{position:absolute;left:63%;top:44%;width:clamp(90px,11vw,160px);aspect-ratio:1;border:1px solid rgba(236,230,218,.5);transform:translate(-50%,-50%)}
+.vf .focus{position:absolute;left:78%;top:43%;width:clamp(90px,11vw,160px);aspect-ratio:1;border:1px solid rgba(236,230,218,.5);transform:translate(-50%,-50%)}
 .vf .focus::before,.vf .focus::after{content:"";position:absolute;background:rgba(236,230,218,.55)}
 .vf .focus::before{left:50%;top:-10px;bottom:-10px;width:1px;transform:translateX(-.5px);clip-path:polygon(0 0,100% 0,100% 12px,0 12px,0 calc(100% - 12px),100% calc(100% - 12px),100% 100%,0 100%)}
 .vf .focus::after{top:50%;left:-10px;right:-10px;height:1px;clip-path:polygon(0 0,12px 0,12px 100%,0 100%,0 0,calc(100% - 12px) 0,100% 0,100% 100%,calc(100% - 12px) 100%)}
 .motion .vf .focus{animation:focus 4s ease-in-out infinite}
 @keyframes focus{0%,100%{transform:translate(-50%,-50%) scale(1)}8%{transform:translate(-50%,-50%) scale(1.18)}14%{transform:translate(-50%,-50%) scale(.96)}20%{transform:translate(-50%,-50%) scale(1)}}
 .hero .lead{position:absolute;z-index:5;left:var(--pad);bottom:clamp(40px,7vh,76px);max-width:440px}
+.hero .title.front{z-index:4;pointer-events:none}
+.hero .title .w1{display:block}
+.hero .title.front .w1{color:transparent}
+.hero .title .w2{display:block;width:max-content;margin:.06em 0 0 .06em;font:italic 500 .3em/1 var(--serif);color:var(--red2);text-transform:none;letter-spacing:0;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.hero .title:not(.front) .w2{visibility:hidden}
+.hero .title .in{display:inline-block;text-align:left}
+.logo em{font:italic 500 .8em/1 var(--serif);color:var(--red2);text-transform:none;letter-spacing:0;margin-left:2px}
+.hero .lead .w2m{display:none}
 .hero .lead .sub{font:800 clamp(22px,2.3vw,32px)/1.05 var(--cond);text-transform:uppercase;letter-spacing:.01em;margin-bottom:14px}
 .hero .lead p{color:#cfc8bb;font-size:16px;margin-bottom:24px}
 .hero .lead .row{display:flex;gap:12px;flex-wrap:wrap}
@@ -109,11 +119,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero .quote span{display:block;margin-top:10px;font:400 11px var(--mono);letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
 .hero .slate{position:absolute;z-index:5;left:50%;transform:translateX(-50%);bottom:clamp(18px,3vh,32px);padding:0 0 10px;color:var(--dim);white-space:nowrap}
 @media (max-width:900px){
-  .hero{min-height:700px}
-  .hero .title{top:13%;font-size:31vw}
-  .hero .who{height:62%;left:50%;transform:translateX(-50%);bottom:170px;-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent 98%);mask-image:linear-gradient(to bottom,#000 55%,transparent 98%)}
+  .hero{height:auto;min-height:0;display:flex;flex-direction:column;padding:118px var(--pad) 40px}
+  .hero .title{position:relative;top:auto;left:auto;font-size:34vw;z-index:1}
+  .hero .title.front{display:none}
+  .hero .lead .w2m{display:block;font:italic 500 44px/1 var(--serif);color:var(--red2);margin-bottom:8px}
+  .hero .who{position:relative;left:auto;bottom:auto;transform:none;height:auto;width:100%;max-width:460px;align-self:center;margin-top:-12vw;-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%);mask-image:linear-gradient(to bottom,#000 62%,transparent 100%)}
   .hero .quote,.hero .slate,.vf .tr span:not(:first-child),.vf .focus{display:none}
-  .hero .lead{right:var(--pad);bottom:28px;max-width:none}
+  .hero .lead{position:relative;left:auto;right:auto;bottom:auto;max-width:none;margin-top:-34px}
   .hero .lead p{font-size:15px;margin-bottom:18px}
   .vf .tl{left:46px}.vf .tr{right:46px}
 }
@@ -132,7 +144,8 @@ section{position:relative}
 .slate-h{display:flex;gap:18px;align-items:center;color:var(--dim);margin-bottom:22px}
 .slate-h b{color:var(--red);font-weight:500}
 .slate-h::after{content:"";flex:1;height:1px;background:var(--line)}
-.h2{font:900 clamp(46px,7.4vw,112px)/.9 var(--cond);text-transform:uppercase;letter-spacing:-.005em}
+.nw{white-space:nowrap}
+.h2{text-wrap:balance;font:900 clamp(40px,7.4vw,112px)/.9 var(--cond);text-transform:uppercase;letter-spacing:-.005em}
 .h2 em{font:italic 400 .82em/1 var(--serif);text-transform:none;letter-spacing:0;color:var(--red2)}
 .intro{max-width:620px;color:#cbc4b7;font-size:18px;margin-top:26px}
 
@@ -270,13 +283,13 @@ section{position:relative}
 
 /* masterskaya */
 .mast .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);margin-top:56px;align-items:start}
-.mast .pic{position:relative;aspect-ratio:1/1;overflow:hidden}
+.mast .pic{position:relative;overflow:hidden}
+.mast .pic .frame{position:relative;aspect-ratio:4/3;overflow:hidden}
 .mast .pic{background:radial-gradient(70% 70% at 70% 40%,rgba(229,40,27,.35),transparent 65%),#100c0b}
-.mast .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:brightness(.85) contrast(1.08);transform-origin:50% 35%}
-.motion .mast .pic img{transform:scale(1.55)}.motion .mast .pic.in img{transform:scale(1.35)}
-.mast .pic img{transform:scale(1.35)}
-.mast .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(11,11,11,.85)),linear-gradient(90deg,rgba(229,40,27,.25),transparent 40%);mix-blend-mode:normal}
-.mast .pic .cap{position:absolute;left:20px;bottom:18px;right:20px;z-index:2}
+.mast .pic img{width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:brightness(.85) contrast(1.08)}
+.motion .mast .pic img{transform:scale(1.06)}.motion .mast .pic.in img{transform:none}
+.mast .pic .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(11,11,11,.85)),linear-gradient(90deg,rgba(229,40,27,.25),transparent 40%);mix-blend-mode:normal}
+.mast .pic .cap{padding:18px 0 0}
 .mast .pic .cap b{display:block;font:900 clamp(34px,3.6vw,52px)/.9 var(--cond);text-transform:uppercase}
 .inside{list-style:none;border-top:1px solid var(--line2)}
 .inside li{display:grid;grid-template-columns:42px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px;color:#d6cfc2}
@@ -370,6 +383,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .credits .role{font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
 .credits .name{font:800 clamp(24px,2.6vw,34px)/1 var(--cond);text-transform:uppercase}
 .credits .end{font:900 clamp(90px,18vw,300px)/.8 var(--cond);margin-top:60px;letter-spacing:-.01em}
+.credits .end em{display:block;font:italic 500 .3em/1.2 var(--serif);color:var(--red2);letter-spacing:0}
 .credits .end .dot{width:.16em;height:.16em;vertical-align:.12em;margin-left:.04em}
 .credits .legal{margin-top:46px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--mute);font-size:13px;border-top:1px solid var(--line);padding-top:22px;text-align:left}
 
@@ -392,7 +406,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 </div>
 
 <header class="nav" id="nav">
-  <a href="#top" class="logo">МОТОР<span class="dot blink"></span></a>
+  <a href="#top" class="logo">ЛИЦО <em>без грима</em><span class="dot blink"></span></a>
   <ul>
     <li><a href="#floors">Этажи</a></li>
     <li><a href="#faculties">Факультеты</a></li>
@@ -406,10 +420,11 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <main id="top">
 
 <!-- HERO -->
-<section class="hero" aria-label="МОТОР — киноуниверситет Артура Каспранова">
-  <h1 class="title" aria-label="МОТОР">МОТОР</h1>
-  <img class="who" src="img/arthur-cut.webp" alt="Артур Каспранов, актёр театра и кино" fetchpriority="high">
+<section class="hero" aria-label="Лицо без грима — школа актёрского мастерства Артура Каспранова">
+  <h1 class="title"><span class="in"><span class="w1">ЛИЦО</span><span class="w2">без грима</span></span></h1>
+  <img class="who" src="img/arthur-cut.webp" alt="Артур Каспранов, актёр театра и кино" fetchpriority="high">
   <div class="rim"></div>
+  <div class="title front" aria-hidden="true"><span class="in"><span class="w1">ЛИЦО</span><span class="w2">без грима</span></span></div>
   <div class="vf" aria-hidden="true">
     <i></i><i></i><i></i><i></i>
     <div class="tl mono"><span><span class="dot blink"></span>&nbsp; REC</span><span class="tc" id="tc">00:00:00:00</span></div>
@@ -417,39 +432,40 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="focus"></div>
   </div>
   <div class="lead">
-    <div class="sub">Киноуниверситет<br>Артура Каспранова</div>
-    <p>Учим держаться в кадре тех, кто продаёт, снимает и играет. Четыре факультета, три этажа, финал на пробах.</p>
+    <div class="w2m">без грима</div>
+    <div class="sub">Школа актёрского мастерства<br>Артура Каспранова</div>
+    <p>Учим держаться в кадре тех, кто продаёт, снимает и играет. Четыре факультета, три этажа, финал на пробах.</p>
     <div class="row">
       <a href="#faculties" class="btn red">Выбрать факультет</a>
-      <a href="#floors" class="btn">Как устроены этажи</a>
+      <a href="#floors" class="btn">Как устроены этажи</a>
     </div>
   </div>
-  <div class="quote">Камера не любит тех, кто старается ей понравиться<span>правило №1</span></div>
+  <div class="quote">Камера не любит тех, кто старается ей понравиться<span>правило №1</span></div>
   <div class="slate mono">Сцена 01 · Дубль 1 · Камера А</div>
 </section>
 
 <div class="ticker" aria-hidden="true"><div class="track" id="ticker">
-  <span>«Молодёжка. Новая смена»</span><span>«Ледниковый период» · Первый канал</span><span>Театр на Бронной</span><span>РГИСИ · 2021</span><span>10 лет в хоккее</span><span>«Космос засыпает»</span><span>«СуперИвановы»</span><span>«Тень. Взять Гордея»</span>
+  <span>«Молодёжка. Новая смена»</span><span>«Ледниковый период» · Первый канал</span><span>10 лет в хоккее</span><span>«Космос засыпает»</span><span>«СуперИвановы»</span><span>«Тень. Взять Гордея»</span>
 </div></div>
 
 <!-- ABOUT -->
 <section class="sec about" id="about">
   <div class="wrap">
     <div class="slate-h mono"><b>Сцена 02</b> Кто ведёт</div>
-    <h2 class="h2" data-r>Десять лет на льду.<br>Потом <em>сцена</em></h2>
+    <h2 class="h2" data-r>Десять лет на льду.<br>Потом <em>сцена</em></h2>
     <div class="grid">
       <div class="shots">
-        <figure class="shot s1" data-r><span class="tag">РЕНАТ ФАЙЗУЛИН</span><img src="img/ice.jpg" alt="Артур Каспранов в роли хоккеиста Рената Файзулина" loading="lazy"><figcaption>«Молодёжка. Новая смена» · СТС</figcaption></figure>
-        <figure class="shot s2" data-r="2"><img src="img/stage.jpg" alt="Артур Каспранов в театре" loading="lazy"><figcaption>Театр · Петербург</figcaption></figure>
+        <figure class="shot s1" data-r><span class="tag">РЕНАТ ФАЙЗУЛИН</span><img src="img/ice.jpg" alt="Артур Каспранов в роли хоккеиста Рената Файзулина" loading="lazy"><figcaption>«Молодёжка. Новая смена» · СТС</figcaption></figure>
+        <figure class="shot s2" data-r="2"><img src="img/stage.jpg" alt="Артур Каспранов в театре" loading="lazy"><figcaption>Театр · Петербург</figcaption></figure>
       </div>
       <div class="txt">
-        <p data-r>Артур из Уфы. До пятнадцати лет он по десять часов в день стоял на льду в системе «Салавата Юлаева». Потом театральная студия, РГИСИ в Петербурге, Театр на Бронной и роль нападающего <strong>Рената Файзулина в «Молодёжке. Новой смене»</strong>.</p>
-        <p data-r="2">Из спорта он принёс то, чего не хватает большинству актёрских школ: <strong>режим, повтор и честный счёт</strong>. Здесь учат как на тренировке. Сделал, показал, получил разбор, сделал снова. Пока не станет телом, а не теорией.</p>
-        <p data-r="3">Под роль хоккеиста Артур сбросил десять килограммов и тринадцать часов отыграл на коньках без дублёра. Так же он будет работать с тобой.</p>
+        <p data-r>Артур из Уфы. До пятнадцати лет он по десять часов в день стоял на льду в системе «Салавата Юлаева». Потом театральная студия, учёба в Петербурге в Герценовском и роль нападающего <strong>Рената Файзулина в «Молодёжке. Новой смене»</strong>.</p>
+        <p data-r="2">Из спорта он принёс то, чего не хватает большинству актёрских школ: <strong>режим, повтор и честный счёт</strong>. Здесь учат как на тренировке. Сделал, показал, получил разбор, сделал снова. Пока не станет телом, а не теорией.</p>
+        <p data-r="3">Под роль хоккеиста Артур сбросил десять килограммов и тринадцать часов отыграл на коньках без дублёра. Так же он будет работать с тобой.</p>
         <div class="facts" data-r="3">
           <div><b>10+</b><span>лет профессионального хоккея</span></div>
-          <div><b>2021</b><span>диплом РГИСИ, Петербург</span></div>
-          <div><b>2022</b><span>Театр на Бронной: «Гамлет in Moscow», «Бесы»</span></div>
+          <div><b>−10 кг</b><span>за короткий срок под роль хоккеиста</span></div>
+          <div><b>13 ч</b><span>на коньках без дублёра за одну смену</span></div>
           <div><b>2026</b><span>«Ледниковый период», Первый канал</span></div>
         </div>
         <div class="filmo" data-r="4">
@@ -469,33 +485,33 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 
 <!-- TITLE CARDS -->
 <section class="cards" aria-label="Принципы">
-  <div class="card"><div class="bars t"></div><div><div class="mono">Правило №2</div><h3 data-r>Самое сложное в кадре — <u>ничего не делать</u></h3></div><div class="bars b"></div></div>
-  <div class="card inv"><div><div class="mono">Правило №3</div><h3 data-r>Камера видит не текст. Камера видит, <u>о чём ты думаешь</u></h3></div></div>
+  <div class="card"><div class="bars t"></div><div><div class="mono">Правило №2</div><h3 data-r>Самое сложное в кадре — <u>ничего не делать</u></h3></div><div class="bars b"></div></div>
+  <div class="card inv"><div><div class="mono">Правило №3</div><h3 data-r>Камера видит не текст. Камера видит, <u>о чём ты думаешь</u></h3></div></div>
   <div class="card red"><div><div class="mono">Правило №4</div><h3 data-r>Живой человек продаёт лучше <u>идеального</u></h3></div></div>
 </section>
 
 <!-- FLOORS -->
 <section class="sec" id="floors">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 03</b> Как устроен университет</div>
-    <h2 class="h2" data-r>Три этажа.<br>Выше поднимаются <em>не все</em></h2>
-    <p class="intro" data-r="2">Начинаешь на своём факультете в группе. Лучших по итогам финальной работы зовём на второй этаж, в мастерскую. Оттуда дорога в агентство и на настоящие пробы.</p>
+    <div class="slate-h mono"><b>Сцена 03</b> Как устроена школа</div>
+    <h2 class="h2" data-r>Три этажа.<br>Выше поднимаются <em>не все</em></h2>
+    <p class="intro" data-r="2">Начинаешь на своём факультете в группе. Лучших по итогам финальной работы зовём на второй этаж, в мастерскую. Оттуда дорога в агентство и на настоящие пробы.</p>
     <div class="floors">
       <div class="lift" aria-hidden="true"><i></i></div>
       <div class="floor top" data-r>
         <div class="n">03</div>
-        <div><div class="k mono">Этаж 03 · Агентство</div><h3>Пробы в кино, сериалы и рекламу</h3><p>Актёрская база, подбор под запросы кастинг-директоров, самопробы под реальные роли и сопровождение до договора. Сюда попадают выпускники мастерской.</p><span class="lock mono">● только из мастерской</span></div>
-        <div class="meta"><div><span>Формат</span><b>Личное ведение</b></div><div><span>Кто</span><b>Выпускники этажа 02</b></div><div><span>Условия</span><b>Комиссия с гонорара</b></div></div>
+        <div><div class="k mono">Этаж 03 · Агентство</div><h3>Дорога на пробы в кино, сериалы и рекламу</h3><p>Актёрская база, подбор под запросы кастингов, подготовка самопроб и сопровождение на пробах. Сюда попадают выпускники мастерской.</p><span class="lock mono">● только из мастерской</span></div>
+        <div class="meta"><div><span>Формат</span><b>Личное ведение</b></div><div><span>Кто</span><b>Выпускники этажа 02</b></div><div><span>Условия</span><b>Комиссия с гонорара</b></div></div>
       </div>
       <div class="floor" data-r>
         <div class="n">02</div>
-        <div><div class="k mono">Этаж 02 · Мастерская Каспранова</div><h3>Индивидуальная работа с Артуром</h3><p>Три месяца, двенадцать мест. Сцены с партнёрами, съёмочный день с профессиональной группой, шоурил и портфолио. Купить место нельзя, только получить приглашение.</p><span class="lock mono">● по приглашению</span></div>
-        <div class="meta"><div><span>Длительность</span><b>3 месяца</b></div><div><span>Мест в потоке</span><b>12</b></div><div><span>Стоимость</span><b>100–150 тыс. ₽</b></div></div>
+        <div><div class="k mono">Этаж 02 · Мастерская Каспранова</div><h3>Индивидуальная работа с Артуром</h3><p>Два месяца, двенадцать мест. Сцены с партнёрами, съёмочный день с профессиональной группой, актёрская визитка и самопробы. Купить место нельзя, только получить приглашение.</p><span class="lock mono">● по приглашению</span></div>
+        <div class="meta"><div><span>Длительность</span><b>2 месяца</b></div><div><span>Мест в потоке</span><b>12</b></div><div><span>Стоимость</span><b>90–140 тыс. ₽</b></div></div>
       </div>
       <div class="floor" data-r>
         <div class="n">01</div>
-        <div><div class="k mono">Этаж 01 · Факультеты</div><h3>Группы онлайн, 8 недель</h3><p>Четыре факультета под разные цели: бизнес, блог, старт с нуля и профессия. Двенадцать уроков в трёх актах, живые разборы и финальная работа «Премьера».</p></div>
-        <div class="meta"><div><span>Длительность</span><b>8 недель</b></div><div><span>Формат</span><b>Онлайн, группа</b></div><div><span>Разборы</span><b>Труппы по 8 человек</b></div></div>
+        <div><div class="k mono">Этаж 01 · Факультеты</div><h3>Группы онлайн, 8 недель</h3><p>Четыре факультета под разные цели: бизнес, блог, старт с нуля и профессия. Двенадцать уроков в трёх актах, живые разборы, финальная работа «Премьера» и именной сертификат.</p></div>
+        <div class="meta"><div><span>Длительность</span><b>8 недель</b></div><div><span>Формат</span><b>Онлайн, группа</b></div><div><span>Разборы</span><b>Труппы по 8 человек</b></div><div><span>Итог</span><b>Сертификат</b></div></div>
       </div>
     </div>
   </div>
@@ -506,73 +522,73 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   <div class="wrap">
     <div class="slate-h mono"><b>Сцена 04</b> Этаж 01 · Факультеты</div>
     <h2 class="h2" data-r>Четыре факультета.<br>Одна <em>камера</em></h2>
-    <p class="intro" data-r="2">Каждый факультет — это 8 недель, 3 акта и 12 уроков. Финал у всех один: «Премьера», твоя работа на камеру, которую смотрит Артур.</p>
+    <p class="intro" data-r="2">Каждый факультет — это 8 недель, 3 акта и 12 уроков. Финал у всех один: «Премьера», твоя работа на камеру, которую смотрит Артур. После неё именной сертификат.</p>
 
     <div class="tabs" role="tablist">
-      <button class="tab on" role="tab" data-f="0"><div class="clap"></div><span class="no mono">Факультет 01</span><b>В кадре</b><small>Предприниматели и эксперты</small></button>
-      <button class="tab" role="tab" data-f="1"><div class="clap"></div><span class="no mono">Факультет 02</span><b>Рилс</b><small>Блогеры и креаторы</small></button>
-      <button class="tab" role="tab" data-f="2"><div class="clap"></div><span class="no mono">Факультет 03</span><b>Старт</b><small>Актёры с нуля</small></button>
+      <button class="tab on" role="tab" data-f="0"><div class="clap"></div><span class="no mono">Факультет 01</span><b>В кадре</b><small>Предприниматели и эксперты</small></button>
+      <button class="tab" role="tab" data-f="1"><div class="clap"></div><span class="no mono">Факультет 02</span><b>Рилс</b><small>Блогеры и креаторы</small></button>
+      <button class="tab" role="tab" data-f="2"><div class="clap"></div><span class="no mono">Факультет 03</span><b>Старт</b><small>Актёры с нуля</small></button>
       <button class="tab" role="tab" data-f="3"><div class="clap"></div><span class="no mono">Факультет 04</span><b>Профи</b><small>Действующие актёры</small></button>
     </div>
 
     <!-- 01 -->
     <div class="fac on" role="tabpanel">
       <div class="top">
-        <div><span class="mono">Для кого</span><p>Собственники, эксперты, спикеры. Те, кто продаёт себя и свой продукт голосом и лицом.</p></div>
-        <div><span class="mono">Приходишь с</span><p>Читаешь по бумажке, в эфире превращаешься в робота, на видео выглядишь хуже, чем в жизни.</p></div>
-        <div class="res"><span class="mono">Уходишь с</span><p><b>Говоришь в камеру как с человеком.</b> Держишь эфир на час, записываешь продающее видео с одного дубля, выступаешь без зажима.</p></div>
+        <div><span class="mono">Для кого</span><p>Собственники, эксперты, спикеры. Те, кто продаёт себя и свой продукт голосом и лицом.</p></div>
+        <div><span class="mono">Приходишь с</span><p>Читаешь по бумажке, в эфире превращаешься в робота, на видео выглядишь хуже, чем в жизни.</p></div>
+        <div class="res"><span class="mono">Уходишь с</span><p><b>Говоришь в камеру как с человеком.</b> Держишь эфир на час, записываешь продающее видео с одного дубля, выступаешь без зажима.</p></div>
       </div>
       <div class="acts">
-        <div class="act"><span class="mono">Акт I</span><h4>Тело и голос</h4><ol><li>Зажимы: где живут и как их снять</li><li>Дыхание и опора голоса</li><li>Взгляд в объектив: видеть в линзе человека</li><li>Пауза как инструмент силы</li></ol></div>
-        <div class="act"><span class="mono">Акт II</span><h4>Текст и смысл</h4><ol><li>Говорить свой текст, а не читать</li><li>История за 60 секунд</li><li>Подтекст: чего ты хочешь от зрителя</li><li>Импровизация, когда всё пошло не так</li></ol></div>
-        <div class="act"><span class="mono">Акт III</span><h4>Продажа и сцена</h4><ol><li>Продающее видео без пафоса</li><li>Эфир и вебинар на час</li><li>Сцена, интервью, переговоры</li><li class="fin">Премьера: видеообращение и разбор</li></ol></div>
+        <div class="act"><span class="mono">Акт I</span><h4>Тело и голос</h4><ol><li>Зажимы: где живут и как их снять</li><li>Дыхание и опора голоса</li><li>Взгляд в объектив: видеть в линзе человека</li><li>Пауза как инструмент силы</li></ol></div>
+        <div class="act"><span class="mono">Акт II</span><h4>Текст и смысл</h4><ol><li>Говорить свой текст, а не читать</li><li>История за 60 секунд</li><li>Подтекст: чего ты хочешь от зрителя</li><li>Импровизация, когда всё пошло не так</li></ol></div>
+        <div class="act"><span class="mono">Акт III</span><h4>Продажа и сцена</h4><ol><li>Продающее видео без пафоса</li><li>Эфир и вебинар на час</li><li>Сцена, интервью, переговоры</li><li class="fin">Премьера: видеообращение и разбор</li></ol></div>
       </div>
-      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">4 live-разбора</span><span class="chip">труппа 8 чел.</span></div><a href="#apply" class="btn red sm" data-pick="0">Хочу на факультет</a></div>
+      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">4 live-разбора</span><span class="chip">труппа 8 чел.</span></div><a href="#apply" class="btn red sm" data-pick="0">Хочу на факультет</a></div>
     </div>
 
     <!-- 02 -->
     <div class="fac" role="tabpanel">
       <div class="top">
-        <div><span class="mono">Для кого</span><p>Блогеры, креаторы, эксперты с личным блогом. Все, кто снимает рилсы и сторис.</p></div>
-        <div><span class="mono">Приходишь с</span><p>Ролики правильные, но мёртвые. Хук есть, сценарий есть, а досматривают до третьей секунды.</p></div>
-        <div class="res"><span class="mono">Уходишь с</span><p><b>Десять роликов, в которых ты живой.</b> Свой экранный персонаж, умение сыграть скетч в одиночку и включить эмоцию по команде.</p></div>
+        <div><span class="mono">Для кого</span><p>Блогеры, креаторы, эксперты с личным блогом. Все, кто снимает рилсы и сторис.</p></div>
+        <div><span class="mono">Приходишь с</span><p>Ролики правильные, но мёртвые. Хук есть, сценарий есть, а досматривают до третьей секунды.</p></div>
+        <div class="res"><span class="mono">Уходишь с</span><p><b>Десять роликов, в которых ты живой.</b> Свой экранный персонаж, умение сыграть скетч в одиночку и включить эмоцию по команде.</p></div>
       </div>
       <div class="acts">
-        <div class="act"><span class="mono">Акт I</span><h4>Живость</h4><ol><li>Почему в кадре ты скучнее, чем в жизни</li><li>Энергия первых трёх секунд</li><li>Мимика под крупный план телефона</li><li>Темпоритм ролика</li></ol></div>
-        <div class="act"><span class="mono">Акт II</span><h4>Персонаж</h4><ol><li>Экранный образ без фальши</li><li>Комедия и тайминг шутки</li><li>Скетч в одиночку: играть двоих</li><li>Эмоция по команде: смех, злость, слёзы</li></ol></div>
-        <div class="act"><span class="mono">Акт III</span><h4>Съёмка</h4><ol><li>Самопроба на телефон: свет, звук, ракурс</li><li>Хук и сценарий глазами актёра</li><li>Партнёр в кадре: коллабы и интеграции</li><li class="fin">Премьера: серия из 10 роликов</li></ol></div>
+        <div class="act"><span class="mono">Акт I</span><h4>Живость</h4><ol><li>Почему в кадре ты скучнее, чем в жизни</li><li>Энергия первых трёх секунд</li><li>Мимика под крупный план телефона</li><li>Темпоритм ролика</li></ol></div>
+        <div class="act"><span class="mono">Акт II</span><h4>Персонаж</h4><ol><li>Экранный образ без фальши</li><li>Комедия и тайминг шутки</li><li>Скетч в одиночку: играть двоих</li><li>Эмоция по команде: смех, злость, слёзы</li></ol></div>
+        <div class="act"><span class="mono">Акт III</span><h4>Съёмка</h4><ol><li>Самопроба на телефон: свет, звук, ракурс</li><li>Хук и сценарий глазами актёра</li><li>Партнёр в кадре: коллабы и интеграции</li><li class="fin">Премьера: серия из 10 роликов</li></ol></div>
       </div>
-      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">10 роликов на выходе</span><span class="chip">труппа 8 чел.</span></div><a href="#apply" class="btn red sm" data-pick="1">Хочу на факультет</a></div>
+      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">10 роликов на выходе</span><span class="chip">труппа 8 чел.</span></div><a href="#apply" class="btn red sm" data-pick="1">Хочу на факультет</a></div>
     </div>
 
     <!-- 03 -->
     <div class="fac" role="tabpanel">
       <div class="top">
-        <div><span class="mono">Для кого</span><p>Те, кто хочет стать актёром, но не учился в театральном. Возраст и город не важны.</p></div>
-        <div><span class="mono">Приходишь с</span><p>Мечтой и вопросами: с чего начать, куда отправлять анкету, что такое самопроба и почему не зовут.</p></div>
-        <div class="res"><span class="mono">Уходишь с</span><p><b>Базовой школой и первой самопробой.</b> Монолог и сцена на камеру, актёрская визитка и понятный маршрут в профессию.</p></div>
+        <div><span class="mono">Для кого</span><p>Те, кто хочет стать актёром, но не учился в театральном. Возраст и город не важны.</p></div>
+        <div><span class="mono">Приходишь с</span><p>Мечтой и вопросами: с чего начать, куда отправлять анкету, что такое самопроба и почему не зовут.</p></div>
+        <div class="res"><span class="mono">Уходишь с</span><p><b>Базовой школой и первой самопробой.</b> Монолог и сцена на камеру, актёрская визитка и понятный маршрут в профессию.</p></div>
       </div>
       <div class="acts">
-        <div class="act"><span class="mono">Акт I</span><h4>Основа</h4><ol><li>Актёрское мастерство — это не кривляться</li><li>Внимание и предлагаемые обстоятельства</li><li>Играть не чувство, а задачу</li><li>Этюды на органику</li></ol></div>
-        <div class="act"><span class="mono">Акт II</span><h4>Инструменты</h4><ol><li>Сценическая речь и дикция</li><li>Пластика и тело</li><li>Партнёр: слушать и отвечать</li><li>Работа с текстом роли</li></ol></div>
-        <div class="act"><span class="mono">Акт III</span><h4>Профессия</h4><ol><li>Театр и кино: в чём разница</li><li>Как устроены кастинги</li><li>Визитка, фото, анкета в базе</li><li class="fin">Премьера: монолог и сцена на камеру</li></ol></div>
+        <div class="act"><span class="mono">Акт I</span><h4>Основа</h4><ol><li>Актёрское мастерство — это не кривляться</li><li>Внимание и предлагаемые обстоятельства</li><li>Играть не чувство, а задачу</li><li>Этюды на органику</li></ol></div>
+        <div class="act"><span class="mono">Акт II</span><h4>Инструменты</h4><ol><li>Сценическая речь и дикция</li><li>Пластика и тело</li><li>Партнёр: слушать и отвечать</li><li>Работа с текстом роли</li></ol></div>
+        <div class="act"><span class="mono">Акт III</span><h4>Профессия</h4><ol><li>Театр и кино: в чём разница</li><li>Как устроены кастинги</li><li>Визитка, фото, анкета в базе</li><li class="fin">Премьера: монолог и сцена на камеру</li></ol></div>
       </div>
-      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">самопроба + визитка</span><span class="chip">труппа 8 чел.</span></div><a href="#apply" class="btn red sm" data-pick="2">Хочу на факультет</a></div>
+      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">самопроба + визитка</span><span class="chip">труппа 8 чел.</span></div><a href="#apply" class="btn red sm" data-pick="2">Хочу на факультет</a></div>
     </div>
 
     <!-- 04 -->
     <div class="fac" role="tabpanel">
       <div class="top">
-        <div><span class="mono">Для кого</span><p>Действующие актёры театра и кино, выпускники театральных вузов, актёры массовки и эпизода.</p></div>
-        <div><span class="mono">Приходишь с</span><p>Пробы есть, утверждений мало. Шоурил устарел, а в кадре играешь как на сцене, на последний ряд.</p></div>
-        <div class="res"><span class="mono">Уходишь с</span><p><b>Системой подготовки к пробам.</b> Новая сцена для шоурила, разбор сильных и слабых сторон, понимание, как тебя видит кастинг.</p></div>
+        <div><span class="mono">Для кого</span><p>Действующие актёры театра и кино, выпускники театральных вузов, актёры массовки и эпизода.</p></div>
+        <div><span class="mono">Приходишь с</span><p>Пробы есть, утверждений мало. Шоурил устарел, а в кадре играешь как на сцене, на последний ряд.</p></div>
+        <div class="res"><span class="mono">Уходишь с</span><p><b>Системой подготовки к пробам.</b> Новая самопроба-визитка, разбор сильных и слабых сторон, понимание, как тебя видит кастинг.</p></div>
       </div>
       <div class="acts">
-        <div class="act"><span class="mono">Акт I</span><h4>Камера</h4><ol><li>Крупный план: масштаб игры</li><li>Как тебя будут резать на монтаже</li><li>Непрерывность и повтор дублей</li><li>Жанры: драма, комедия, экшн</li></ol></div>
-        <div class="act"><span class="mono">Акт II</span><h4>Пробы</h4><ol><li>Разобрать сцену за ночь до проб</li><li>Самопробы, которые смотрят до конца</li><li>Разбор реальных проб с кастинга</li><li>Как получить второй тур</li></ol></div>
-        <div class="act"><span class="mono">Акт III</span><h4>Карьера</h4><ol><li>Шоурил: что в нём должно быть</li><li>Агентства и базы: как с ними работать</li><li>Соцсети актёра</li><li class="fin">Премьера: сцена для шоурила</li></ol></div>
+        <div class="act"><span class="mono">Акт I</span><h4>Камера</h4><ol><li>Крупный план: масштаб игры</li><li>Как тебя будут резать на монтаже</li><li>Непрерывность и повтор дублей</li><li>Жанры: драма, комедия, экшн</li></ol></div>
+        <div class="act"><span class="mono">Акт II</span><h4>Пробы</h4><ol><li>Разобрать сцену за ночь до проб</li><li>Самопробы, которые смотрят до конца</li><li>Разбор реальных проб с кастинга</li><li>Как получить второй тур</li></ol></div>
+        <div class="act"><span class="mono">Акт III</span><h4>Карьера</h4><ol><li>Визитка и шоурил: что смотрит кастинг</li><li>Агентства и базы: как с ними работать</li><li>Соцсети актёра</li><li class="fin">Премьера: самопроба под реальную роль</li></ol></div>
       </div>
-      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">сцена для шоурила</span><span class="chip">быстрый вход на этаж 02</span></div><a href="#apply" class="btn red sm" data-pick="3">Хочу на факультет</a></div>
+      <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 уроков</span><span class="chip">самопроба под роль</span><span class="chip">быстрый вход на этаж 02</span></div><a href="#apply" class="btn red sm" data-pick="3">Хочу на факультет</a></div>
     </div>
   </div>
 </section>
@@ -580,13 +596,13 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- WEEK -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 05</b> Неделя на факультете</div>
-    <h2 class="h2" data-r>Как на тренировке.<br>Каждую <em>неделю</em></h2>
+    <div class="slate-h mono"><b>Сцена 05</b> Неделя на факультете</div>
+    <h2 class="h2" data-r>Как на тренировке.<br>Каждую <em>неделю</em></h2>
     <div class="week">
-      <div class="day" data-r><span class="tc"></span><span class="mono">Пн</span><h4>Урок</h4><p>Короткая теория в записи, 20–30 минут. Смотришь когда удобно, хоть в машине.</p></div>
-      <div class="day" data-r="2"><span class="tc"></span><span class="mono">Ср</span><h4>Live</h4><p>Живая практика с Артуром или куратором. Упражнения в камеру, прямо на эфире.</p></div>
-      <div class="day" data-r="3"><span class="tc"></span><span class="mono">Пт</span><h4>Самопроба</h4><p>Домашнее задание: снимаешь дубль на телефон и сдаёшь в платформу.</p></div>
-      <div class="day" data-r="4"><span class="tc"></span><span class="mono">Сб–Вс</span><h4>Разбор</h4><p>Труппа из восьми человек, куратор и честный разбор каждого дубля. Без «всё классно».</p></div>
+      <div class="day" data-r><span class="tc"></span><span class="mono">Пн</span><h4>Урок</h4><p>Короткая теория в записи, 20–30 минут. Смотришь когда удобно, хоть в машине.</p></div>
+      <div class="day" data-r="2"><span class="tc"></span><span class="mono">Ср</span><h4>Live</h4><p>Живая практика с Артуром или куратором. Упражнения в камеру, прямо на эфире.</p></div>
+      <div class="day" data-r="3"><span class="tc"></span><span class="mono">Пт</span><h4>Самопроба</h4><p>Домашнее задание: снимаешь дубль на телефон и сдаёшь в платформу.</p></div>
+      <div class="day" data-r="4"><span class="tc"></span><span class="mono">Сб–Вс</span><h4>Разбор</h4><p>Труппа из восьми человек, куратор и честный разбор каждого дубля. Без «всё классно».</p></div>
     </div>
   </div>
 </section>
@@ -594,14 +610,14 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- CASTING -->
 <section class="sec cast" id="casting">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 06</b> Отбор на этаж 02</div>
-    <h2 class="h2" data-r>Второй этаж —<br>это <em>кастинг</em>, а не апселл</h2>
-    <p class="intro" data-r="2">После «Премьеры» Артур лично смотрит работы потока и выбирает тех, с кем пойдёт дальше. Решает не кошелёк, а четыре вещи.</p>
+    <div class="slate-h mono"><b>Сцена 06</b> Отбор на этаж 02</div>
+    <h2 class="h2" data-r>Второй этаж —<br><span class="nw">это <em>кастинг</em>,</span> а не апселл</h2>
+    <p class="intro" data-r="2">После «Премьеры» Артур лично смотрит работы потока и выбирает тех, с кем пойдёт дальше. Решает не кошелёк, а четыре вещи.</p>
     <div class="crit">
-      <div data-r><b>01</b><h4>Премьера</h4><p>Финальная работа на камеру: видно, что ты умеешь сейчас.</p></div>
-      <div data-r="2"><b>02</b><h4>Динамика</h4><p>Насколько ты вырос за 8 недель, от первого дубля до последнего.</p></div>
-      <div data-r="3"><b>03</b><h4>Режим</h4><p>Все самопробы сданы, все разборы пройдены. Как в спорте.</p></div>
-      <div data-r="4"><b>04</b><h4>Встреча</h4><p>Короткий созвон с Артуром. Смотрим, совпадаем ли по задаче.</p></div>
+      <div data-r><b>01</b><h4>Премьера</h4><p>Финальная работа на камеру: видно, что ты умеешь сейчас.</p></div>
+      <div data-r="2"><b>02</b><h4>Динамика</h4><p>Насколько ты вырос за 8 недель, от первого дубля до последнего.</p></div>
+      <div data-r="3"><b>03</b><h4>Режим</h4><p>Все самопробы сданы, все разборы пройдены. Как в спорте.</p></div>
+      <div data-r="4"><b>04</b><h4>Встреча</h4><p>Короткий созвон с Артуром. Смотрим, совпадаем ли по задаче.</p></div>
     </div>
     <div class="stamp" data-r>Приглашение нельзя купить</div>
   </div>
@@ -613,19 +629,19 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="slate-h mono"><b>Сцена 07</b> Этаж 02</div>
     <h2 class="h2" data-r>Мастерская<br><em>Каспранова</em></h2>
     <div class="grid">
-      <figure class="pic shot" data-r><img src="img/arthur-cut.webp" alt="Артур Каспранов, крупный план" loading="lazy"><div class="cap"><span class="mono" style="color:#e5281b">● 12 мест · 3 месяца</span><b>Работаешь лично<br>с Артуром</b></div></figure>
+      <figure class="pic shot" data-r><div class="frame"><img src="img/arthur-cut.webp" alt="Артур Каспранов, портрет" loading="lazy"></div><div class="cap"><span class="mono" style="color:#e5281b">● 12 мест · 2 месяца</span><b>Работаешь лично<br>с Артуром</b></div></figure>
       <div>
         <ul class="inside">
-          <li data-r><span>01</span>Еженедельные индивидуальные разборы с Артуром</li>
-          <li data-r><span>02</span>Сцены с партнёрами-актёрами, а не с зеркалом</li>
-          <li data-r><span>03</span>Съёмочный день с профессиональной группой: камера, свет, режиссёр</li>
-          <li data-r><span>04</span>Шоурил и актёрское портфолио, с которыми не стыдно на кастинг</li>
-          <li data-r><span>05</span>Подготовка к пробам под реальные проекты</li>
-          <li data-r><span>06</span>Карточка в базе агентства по итогам</li>
+          <li data-r><span>01</span>Еженедельные индивидуальные разборы с Артуром</li>
+          <li data-r><span>02</span>Сцены с партнёрами-актёрами, а не с зеркалом</li>
+          <li data-r><span>03</span>Съёмочный день с профессиональной группой: камера, свет, режиссёр</li>
+          <li data-r><span>04</span>Актёрская визитка и самопробы, с которыми не стыдно на кастинг</li>
+          <li data-r><span>05</span>Подготовка к пробам под реальные проекты</li>
+          <li data-r><span>06</span>Карточка в базе агентства и сертификат мастерской</li>
         </ul>
         <div class="plans">
-          <div class="plan" data-r><span class="mono">Формат А</span><h4>Труппа</h4><div class="p">100 000 ₽</div><p>Мини-группа до шести человек. Разбор с Артуром раз в две недели, общий съёмочный день.</p></div>
-          <div class="plan hot" data-r="2"><span class="mono">Формат Б</span><h4>Соло</h4><div class="p">150 000 ₽</div><p>Только ты и Артур. Разбор каждую неделю, личный съёмочный день и сцена под твой типаж.</p></div>
+          <div class="plan" data-r><span class="mono">Формат А</span><h4>Труппа</h4><div class="p">90 000 ₽</div><p>Мини-группа до шести человек. Разбор с Артуром раз в две недели, общий съёмочный день.</p></div>
+          <div class="plan hot" data-r="2"><span class="mono">Формат Б</span><h4>Соло</h4><div class="p">140 000 ₽</div><p>Только ты и Артур. Разбор каждую неделю, личный съёмочный день и сцена под твой типаж.</p></div>
         </div>
       </div>
     </div>
@@ -636,39 +652,39 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <section class="sec agency" id="agency">
   <div class="wrap">
     <div class="slate-h mono"><b>Сцена 08</b> Этаж 03 · Агентство</div>
-    <p class="big" data-r>Мы не продаём роли. Мы готовим к пробам и <u>приводим на них</u></p>
+    <p class="big" data-r>Мы не обещаем роли. Мы готовим к пробам так, чтобы <u>шанс был твоим</u></p>
     <div class="steps">
-      <div class="step" data-r><span class="mono">Шаг 01</span><span class="rec mono">●</span><h4>Карточка в базе</h4><p>Фото, шоурил, параметры, навыки. Всё, что смотрит кастинг-директор за десять секунд.</p></div>
-      <div class="step" data-r="2"><span class="mono">Шаг 02</span><span class="rec mono">●</span><h4>Подбор</h4><p>Сверяем запросы кастингов с базой и предлагаем тебя туда, где у тебя есть шанс.</p></div>
-      <div class="step" data-r="3"><span class="mono">Шаг 03</span><span class="rec mono">●</span><h4>Самопроба</h4><p>Готовим материал вместе и разбираем дубль до отправки. Уходит лучший.</p></div>
-      <div class="step" data-r="4"><span class="mono">Шаг 04</span><span class="rec mono">●</span><h4>Сопровождение</h4><p>От первого тура до договора: условия, график, гонорар, площадка.</p></div>
+      <div class="step" data-r><span class="mono">Шаг 01</span><span class="rec mono">●</span><h4>Карточка в базе</h4><p>Фото, визитка, параметры, навыки. Всё, что смотрит кастинг-директор за десять секунд.</p></div>
+      <div class="step" data-r="2"><span class="mono">Шаг 02</span><span class="rec mono">●</span><h4>Подбор</h4><p>Когда запрос кастинга совпадает с твоим типажом, предлагаем твою кандидатуру. Как часто, зависит от запросов.</p></div>
+      <div class="step" data-r="3"><span class="mono">Шаг 03</span><span class="rec mono">●</span><h4>Самопроба</h4><p>Готовим материал вместе и разбираем дубль до отправки. Уходит лучший.</p></div>
+      <div class="step" data-r="4"><span class="mono">Шаг 04</span><span class="rec mono">●</span><h4>Сопровождение</h4><p>Если позвали: помогаем подготовиться к туру и разобраться в условиях и договоре.</p></div>
     </div>
     <div class="dirs" data-r><span class="mono">Направления</span><span class="d">Кино</span><span class="d">Сериалы</span><span class="d">Реклама</span><span class="d">Интеграции</span><span class="d">Амбассадорство</span></div>
-    <p class="note" data-r>Предприниматели и блогеры после мастерской тоже попадают в базу: для рекламы и брендов живое лицо эксперта часто ценнее актёра.</p>
+    <p class="note" data-r>Предприниматели и блогеры после мастерской тоже попадают в базу: для рекламы и брендов живое лицо эксперта часто ценнее актёра.</p>
   </div>
 </section>
 
 <!-- TICKETS -->
 <section class="sec" id="tickets">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 09</b> Этаж 01 · Билеты на поток</div>
-    <h2 class="h2" data-r>Выбери <em>место</em><br>в зале</h2>
+    <div class="slate-h mono"><b>Сцена 09</b> Этаж 01 · Билеты на поток</div>
+    <h2 class="h2" data-r>Выбери <em>место</em><br>в зале</h2>
     <div class="tickets">
       <div class="ticket" data-r>
         <div class="hd"><span class="mono">Билет</span><span class="row">РЯД 12 · МЕСТО ∞</span></div>
-        <div class="bd"><h4>Зритель</h4><ul><li>12 уроков в записи</li><li>Домашние задания</li><li>Общий чат потока</li><li class="off">Live-практика и разборы</li><li class="off">Допуск к отбору на этаж 02</li></ul></div>
+        <div class="bd"><h4>Зритель</h4><ul><li>12 уроков в записи</li><li>Домашние задания</li><li>Общий чат потока</li><li class="off">Live-практика и разборы</li><li class="off">Допуск к отбору на этаж 02</li></ul></div>
         <div class="bc"></div>
         <div class="ft"><div class="price">24 900<small>₽</small></div><a href="#apply" class="go" data-tier="Зритель">Взять</a></div>
       </div>
       <div class="ticket hot" data-r="2">
         <div class="hd"><span class="mono">Билет</span><span class="row">РЯД 5 · МЕСТО 8</span></div>
-        <div class="bd"><h4>Партер</h4><ul><li>Всё из «Зрителя»</li><li>4 live-практики</li><li>Труппа и куратор</li><li>Разбор каждой самопробы</li><li>«Премьера» и допуск к отбору</li></ul></div>
+        <div class="bd"><h4>Партер</h4><ul><li>Всё из «Зрителя»</li><li>4 live-практики</li><li>Труппа и куратор</li><li>Разбор каждой самопробы</li><li>«Премьера», сертификат, отбор</li></ul></div>
         <div class="bc"></div>
         <div class="ft"><div class="price">44 900<small>₽</small></div><a href="#apply" class="go" data-tier="Партер">Взять</a></div>
       </div>
       <div class="ticket" data-r="3">
         <div class="hd"><span class="mono">Билет</span><span class="row">РЯД 1 · МЕСТО 1</span></div>
-        <div class="bd"><h4>Первый ряд</h4><ul><li>Всё из «Партера»</li><li>2 личных разбора с Артуром</li><li>Разбор «Премьеры» лично</li><li>Приоритет на отборе</li><li>Мест в потоке: 10</li></ul></div>
+        <div class="bd"><h4>Первый ряд</h4><ul><li>Всё из «Партера»</li><li>2 личных разбора с Артуром</li><li>Разбор «Премьеры» лично</li><li>Приоритет на отборе</li><li>Мест в потоке: 10</li></ul></div>
         <div class="bc"></div>
         <div class="ft"><div class="price">79 900<small>₽</small></div><a href="#apply" class="go" data-tier="Первый ряд">Взять</a></div>
       </div>
@@ -679,14 +695,15 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- FAQ -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 10</b> Вопросы из зала</div>
+    <div class="slate-h mono"><b>Сцена 10</b> Вопросы из зала</div>
     <div class="faq">
-      <details><summary>Нужен ли опыт?</summary><p>Нет. Факультеты «В кадре», «Рилс» и «Старт» рассчитаны на людей без актёрской подготовки. «Профи» для тех, у кого она уже есть.</p></details>
-      <details><summary>Сколько времени в неделю?</summary><p>Три-четыре часа: урок в записи, живая практика, одна самопроба и разбор в труппе на выходных.</p></details>
-      <details><summary>Вы гарантируете роли?</summary><p>Нет, и честные школы так не делают. Мы гарантируем подготовку к пробам и то, что выпускников мастерской будут видеть кастинг-директора. Утверждение зависит от тебя и от проекта.</p></details>
-      <details><summary>Что если меня не позовут на второй этаж?</summary><p>Ты получаешь разбор своей «Премьеры» и понятный план, над чем работать. Пройти факультет повторно или перейти на соседний можно со скидкой, и попробовать снова на следующем отборе.</p></details>
-      <details><summary>Я уже актёр. Можно сразу в мастерскую?</summary><p>Можно через прослушивание: присылаешь шоурил и самопробу, Артур смотрит и решает, идти через «Профи» или сразу на этаж 02.</p></details>
-      <details><summary>Где проходят занятия?</summary><p>Онлайн, на учебной платформе. Live-практики в Zoom, самопробы и разборы на платформе, общение потока в Telegram. Съёмочный день мастерской проходит офлайн.</p></details>
+      <details><summary>Нужен ли опыт?</summary><p>Нет. Факультеты «В кадре», «Рилс» и «Старт» рассчитаны на людей без актёрской подготовки. «Профи» для тех, у кого она уже есть.</p></details>
+      <details><summary>Сколько времени в неделю?</summary><p>Три-четыре часа: урок в записи, живая практика, одна самопроба и разбор в труппе на выходных.</p></details>
+      <details><summary>Вы гарантируете роли?</summary><p>Нет, и честные школы так не делают. Мы готовим к пробам и предлагаем выпускников мастерской на подходящие запросы. Позовут ли на пробы и утвердят ли, решают кастинг и проект.</p></details>
+      <details><summary>Будет сертификат?</summary><p>Да. После «Премьеры» выдаём именной сертификат о прохождении факультета с подписью Артура, после мастерской отдельный. Это не государственный документ об образовании, а подтверждение, что ты прошёл программу и сдал финальную работу.</p></details>
+      <details><summary>Что если меня не позовут на второй этаж?</summary><p>Ты получаешь разбор своей «Премьеры» и понятный план, над чем работать. Пройти факультет повторно или перейти на соседний можно со скидкой, и попробовать снова на следующем отборе.</p></details>
+      <details><summary>Я уже актёр. Можно сразу в мастерскую?</summary><p>Можно через прослушивание: присылаешь самопробу (и шоурил, если есть), Артур смотрит и решает, идти через «Профи» или сразу на этаж 02.</p></details>
+      <details><summary>Где проходят занятия?</summary><p>Онлайн, на учебной платформе. Live-практики в Zoom, самопробы и разборы на платформе, общение потока в Telegram. Съёмочный день мастерской проходит офлайн.</p></details>
     </div>
   </div>
 </section>
@@ -695,28 +712,28 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <section class="sec apply" id="apply">
   <div class="wrap">
     <div class="slate-h mono"><b>Сцена 11</b> Заявка</div>
-    <h2 class="h2" data-r>Камера.<br><em>Мотор.</em> Ты</h2>
+    <h2 class="h2" data-r>Сними <em>грим.</em><br>Включи камеру</h2>
     <div class="grid">
       <div class="side" data-r>
-        <p>Оставь контакт и выбери факультет. Мы напишем, расскажем про ближайший поток и ответим на вопросы.</p>
-        <p>Если ты действующий актёр, приложи ссылку на шоурил, и мы рассмотрим прослушивание сразу в мастерскую.</p>
+        <p>Оставь контакт и выбери факультет. Мы напишем, расскажем про ближайший поток и ответим на вопросы.</p>
+        <p>Если ты действующий актёр, приложи ссылку на шоурил, и мы рассмотрим прослушивание сразу в мастерскую.</p>
         <span class="mono" style="color:var(--dim)">Ближайший поток: набор открыт</span>
       </div>
       <div data-r="2">
         <form id="form" novalidate>
           <div class="fac-pick" role="radiogroup" aria-label="Факультет">
-            <input type="radio" name="fac" id="f0" value="В кадре" checked><label for="f0">В кадре<small>бизнес и эксперты</small></label>
-            <input type="radio" name="fac" id="f1" value="Рилс"><label for="f1">Рилс<small>блог и креатив</small></label>
-            <input type="radio" name="fac" id="f2" value="Старт"><label for="f2">Старт<small>актёр с нуля</small></label>
+            <input type="radio" name="fac" id="f0" value="В кадре" checked><label for="f0">В кадре<small>бизнес и эксперты</small></label>
+            <input type="radio" name="fac" id="f1" value="Рилс"><label for="f1">Рилс<small>блог и креатив</small></label>
+            <input type="radio" name="fac" id="f2" value="Старт"><label for="f2">Старт<small>актёр с нуля</small></label>
             <input type="radio" name="fac" id="f3" value="Профи"><label for="f3">Профи<small>действующий актёр</small></label>
           </div>
-          <label><span class="mono">Имя</span><input name="name" required autocomplete="name" placeholder="Как к тебе обращаться"></label>
-          <label><span class="mono">Telegram или телефон</span><input name="contact" required placeholder="@username"></label>
-          <label><span class="mono">Билет</span><select name="tier"><option>Партер</option><option>Зритель</option><option>Первый ряд</option><option>Пока не знаю</option></select></label>
-          <label><span class="mono">Пара слов о себе или ссылка на шоурил</span><textarea name="about" placeholder="Чем занимаешься и зачем тебе камера"></textarea></label>
+          <label><span class="mono">Имя</span><input name="name" required autocomplete="name" placeholder="Как к тебе обращаться"></label>
+          <label><span class="mono">Telegram или телефон</span><input name="contact" required placeholder="@username"></label>
+          <label><span class="mono">Билет</span><select name="tier"><option>Партер</option><option>Зритель</option><option>Первый ряд</option><option>Пока не знаю</option></select></label>
+          <label><span class="mono">Пара слов о себе или ссылка на шоурил</span><textarea name="about" placeholder="Чем занимаешься и зачем тебе камера"></textarea></label>
           <button class="btn red" type="submit" style="justify-content:center">Отправить заявку</button>
         </form>
-        <div class="ok" id="ok"><b>Снято!</b><p>Заявка записана. Это демо-версия сайта: форма пока никуда не отправляет, подключим к Telegram-боту перед запуском.</p></div>
+        <div class="ok" id="ok"><b>Снято!</b><p>Заявка записана. Это демо-версия сайта: форма пока никуда не отправляет, подключим к Telegram-боту перед запуском.</p></div>
       </div>
     </div>
   </div>
@@ -727,12 +744,12 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   <div class="wrap">
     <div class="roll">
       <div data-r><div class="role">Художественный руководитель</div><div class="name">Артур Каспранов</div></div>
-      <div data-r><div class="role">Факультеты</div><div class="name">В кадре · Рилс · Старт · Профи</div></div>
+      <div data-r><div class="role">Факультеты</div><div class="name">В кадре · Рилс · Старт · Профи</div></div>
       <div data-r><div class="role">Этажи</div><div class="name">Факультеты · Мастерская · Агентство</div></div>
-      <div data-r><div class="role">В главной роли</div><div class="name" style="color:var(--red2)">Ты</div></div>
+      <div data-r><div class="role">В главной роли</div><div class="name" style="color:var(--red2)">Ты</div></div>
     </div>
-    <div class="end" data-r>МОТОР<span class="dot blink"></span></div>
-    <div class="legal"><span>МОТОР · киноуниверситет Артура Каспранова · 2026</span><span>Концепт сайта. Фото из открытых источников, будут заменены</span></div>
+    <div class="end" data-r>ЛИЦО<span class="dot blink"></span><em>без грима</em></div>
+    <div class="legal"><span>Лицо без грима · онлайн-школа актёрского мастерства Артура Каспранова · 2026</span><span>Концепт сайта. Фото из открытых источников, будут заменены</span></div>
   </div>
 </footer>
 </main>
