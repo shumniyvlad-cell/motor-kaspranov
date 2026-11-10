@@ -397,6 +397,34 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 }
 @media (max-width:380px){.h2{font-size:37px}}
 @media (max-width:420px){.week{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.crit{grid-template-columns:1fr}.crit div,.crit div+div{padding:20px 0;border-right:0}.day+.day{padding-left:12px}.day{padding-right:12px}.crit h4,.day h4{font-size:22px}.crit b{font-size:52px}.crit p,.day p{font-size:14px;hyphens:auto}}
+
+/* agency link + Kira */
+.navr{display:flex;gap:10px;align-items:center}
+.btn.ag{border-color:var(--line2);gap:8px}
+.btn.ag .dot{width:7px;height:7px}
+.btn.ag:hover{border-color:var(--paper)}
+@media (max-width:700px){.nav .navr .btn.ag{display:inline-flex;padding:9px 12px;font-size:12px}}
+.kira .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px);margin-top:56px;align-items:start}
+.kcard{border:1px solid var(--line2);background:var(--ink2)}
+.kcard .clap{height:22px;background:repeating-linear-gradient(-55deg,#fff 0 18px,var(--red) 18px 36px)}
+.kcard .mono{display:block;color:var(--dim);padding:16px 20px 0}
+.kcard .ini{font:900 clamp(110px,14vw,190px)/.8 var(--cond);padding:18px 20px 6px;color:transparent;-webkit-text-stroke:1.5px var(--red)}
+.kcard .nm{font:800 clamp(30px,3vw,42px)/1 var(--cond);text-transform:uppercase;padding:0 20px}
+.kcard .rl{padding:8px 20px 22px;color:#c9c2b5;font-size:15px}
+.kcard .r{display:flex;justify-content:space-between;gap:12px;padding:11px 20px;border-top:1px solid var(--line);font:400 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#d1cabd}
+.kcard .r b{font-weight:500;color:var(--paper);text-align:right}
+.kira .txt p{font-size:18px;color:#d6cfc2;margin-bottom:18px}
+.kira .txt p strong{color:var(--paper);font-weight:600}
+.kira .award{border-left:3px solid var(--red);padding:6px 0 6px 18px;margin:26px 0;font:italic 400 clamp(22px,2.2vw,30px)/1.2 var(--serif)}
+.kira .award span{display:block;font:400 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+@media (max-width:900px){.kira .grid{grid-template-columns:1fr}}
+.toag{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.toag p{color:#c9c2b5;font-size:16px;max-width:520px}
+
+.logo{white-space:nowrap}
+@media (max-width:1180px){.nav ul{gap:18px}}
+@media (max-width:1080px){.nav ul{display:none}}
+@media (max-width:380px){.nav{gap:10px}.nav .navr .btn.ag{padding:8px 10px;font-size:11.5px}.logo{font-size:22px}}
 </style>
 </head>
 <body>
@@ -416,7 +444,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <li><a href="#agency">Агентство</a></li>
     <li><a href="#tickets">Цены</a></li>
   </ul>
-  <a href="#apply" class="btn red sm">Подать заявку</a>
+  <div class="navr"><a href="agency.html" class="btn sm ag"><span class="dot"></span>Актёрское агентство</a><a href="#apply" class="btn red sm">Подать заявку</a></div>
 </header>
 
 <main id="top">
@@ -484,6 +512,33 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     </div>
   </div>
 </section>
+
+<!-- KIRA -->
+<section class="sec kira" id="kira" style="padding-top:0">
+  <div class="wrap">
+    <div class="slate-h mono"><b>Сцена 02·Б</b> Ведёт вместе с Артуром</div>
+    <h2 class="h2" data-r>Тебя смотрит<br><em>кастинг-директор</em></h2>
+    <div class="grid">
+      <div class="kcard" data-r>
+        <div class="clap"></div>
+        <span class="mono">Кастинг-директор · агент</span>
+        <div class="ini">КК</div>
+        <div class="nm">Кира Кириллова</div>
+        <div class="rl">Кастинг-директор и актёрский агент, основательница собственного актёрского агентства</div>
+        <div class="r"><span>В школе</span><b>Разборы, отбор, агентство</b></div>
+        <div class="r"><span>Гильдия кастинг-директоров</span><b>Номинация 2025</b></div>
+      </div>
+      <div class="txt">
+        <p data-r>Курс ведут двое. Артур знает, как это играть. Кира знает, <strong>как это видит человек, который выбирает актёра на роль</strong>.</p>
+        <p data-r="2">Кира кастинг-директор и актёрский агент. Она каждый день смотрит самопробы и визитки и решает, кого звать дальше. На разборах она говорит то, чего актёру обычно никто не скажет: что видно в первые секунды, почему не перезвонили и что поменять.</p>
+        <div class="award" data-r="3">Номинация Гильдии кастинг-директоров России за «Ласточку», лучший национальный актёрский ансамбль<span>премия гильдии · 2025</span></div>
+        <p data-r="3">Она же ведёт агентство школы: собирает портфолио выпускников мастерской и отправляет их на кастинги.</p>
+        <div class="toag" data-r="4"><a href="agency.html" class="btn red">Актёрское агентство →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- TITLE CARDS -->
 <section class="cards" aria-label="Принципы">
@@ -661,6 +716,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <div class="step" data-r="3"><span class="mono">Шаг 03</span><span class="rec mono">●</span><h4>Самопроба</h4><p>Готовим материал вместе и разбираем дубль до отправки. Уходит лучший.</p></div>
       <div class="step" data-r="4"><span class="mono">Шаг 04</span><span class="rec mono">●</span><h4>Сопровождение</h4><p>Если позвали: помогаем подготовиться к туру и разобраться в условиях и договоре.</p></div>
     </div>
+    <div class="toag" data-r><p>Агентство ведёт кастинг-директор <strong>Кира Кириллова</strong>. Здесь будут висеть ваши портфолио, которые мы отправляем на кастинги.</p><a href="agency.html" class="btn red">Актёрское агентство →</a></div>
     <div class="dirs" data-r><span class="mono">Направления</span><span class="d">Кино</span><span class="d">Сериалы</span><span class="d">Реклама</span></div>
   </div>
 </section>
@@ -739,6 +795,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   <div class="wrap">
     <div class="roll">
       <div data-r><div class="role">Художественный руководитель</div><div class="name">Артур Каспранов</div></div>
+      <div data-r><div class="role">Кастинг-директор, агентство</div><div class="name">Кира Кириллова</div></div>
       <div data-r><div class="role">Факультеты</div><div class="name">В кадре · Рилс · Старт · Профи</div></div>
       <div data-r><div class="role">Этажи</div><div class="name">Факультеты · Мастерская · Агентство</div></div>
       <div data-r><div class="role">В главной роли</div><div class="name" style="color:var(--red2)">Ты</div></div>
