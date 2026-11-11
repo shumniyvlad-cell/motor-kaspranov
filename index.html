@@ -426,6 +426,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 @media (max-width:1080px){.nav ul{display:none}}
 @media (max-width:380px){.nav{gap:10px}.nav .navr .btn.ag{padding:8px 10px;font-size:11.5px}.logo{font-size:22px}}
 .kcard .kph{margin:14px 0 18px;aspect-ratio:857/1052;overflow:hidden;background:#151515}.kcard .kph img{width:100%;height:100%;object-fit:cover}
+.mcard .mnum{font:900 clamp(110px,13vw,180px)/.8 var(--cond);padding:20px 20px 10px;color:transparent;-webkit-text-stroke:1.5px var(--red)}.mcard .mnum small{font:500 14px var(--mono);letter-spacing:.1em;text-transform:uppercase;-webkit-text-stroke:0;color:var(--dim);margin-left:10px}
 </style>
 </head>
 <body>
@@ -517,7 +518,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- KIRA -->
 <section class="sec kira" id="kira" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 02·Б</b> Ведёт вместе с Артуром</div>
+    <div class="slate-h mono"><b>Сцена 02</b> Кто ведёт · кастинг-директор</div>
     <h2 class="h2" data-r>Тебя смотрит<br><em>кастинг-директор</em></h2>
     <div class="grid">
       <div class="kcard" data-r>
@@ -541,12 +542,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 </section>
 
 
-<!-- TITLE CARDS -->
-<section class="cards" aria-label="Принципы">
-  <div class="card"><div class="bars t"></div><div><div class="mono">Правило №2</div><h3 data-r>Самое сложное в кадре — <u>ничего не делать</u></h3></div><div class="bars b"></div></div>
-  <div class="card inv"><div><div class="mono">Правило №3</div><h3 data-r>Камера видит не текст. Камера видит, <u>о чём ты думаешь</u></h3></div></div>
-  <div class="card red"><div><div class="mono">Правило №4</div><h3 data-r>Лучший дубль не идеальный, <u>а живой</u></h3></div></div>
-</section>
+
 
 <!-- FLOORS -->
 <section class="sec" id="floors">
@@ -687,7 +683,15 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="slate-h mono"><b>Сцена 07</b> Этаж 02</div>
     <h2 class="h2" data-r>Мастерская<br><em>Каспранова</em></h2>
     <div class="grid">
-      <figure class="pic shot" data-r><div class="frame"><img src="img/arthur-cut.webp" alt="Артур Каспранов, портрет" loading="lazy"></div><div class="cap"><span class="mono" style="color:#e5281b">● 12 мест · 2 месяца</span><b>Работаешь лично<br>с Артуром</b></div></figure>
+      <div class="kcard mcard" data-r>
+        <div class="clap"></div>
+        <span class="mono">Этаж 02 · по приглашению</span>
+        <div class="mnum">12<small>мест</small></div>
+        <div class="nm">Работаешь лично с Артуром</div>
+        <div class="rl">Два месяца, сцены с партнёрами, съёмочный день и самопробы под реальные запросы.</div>
+        <div class="r"><span>Длительность</span><b>2 месяца</b></div>
+        <div class="r"><span>Формат</span><b>Труппа или соло</b></div>
+      </div>
       <div>
         <ul class="inside">
           <li data-r><span>01</span>Еженедельные индивидуальные разборы с Артуром</li>
@@ -758,6 +762,13 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <details><summary>Где проходят занятия?</summary><p>Онлайн. Занятия и практики вживую в Zoom, без уроков в записи. Самопробы и разборы в Telegram-группе потока. Съёмочный день мастерской проходит офлайн.</p></details>
     </div>
   </div>
+</section>
+
+<!-- TITLE CARDS -->
+<section class="cards" aria-label="Принципы">
+  <div class="card"><div class="bars t"></div><div><div class="mono">Правило №2</div><h3 data-r>Самое сложное в кадре — <u>ничего не делать</u></h3></div><div class="bars b"></div></div>
+  <div class="card inv"><div><div class="mono">Правило №3</div><h3 data-r>Камера видит не текст. Камера видит, <u>о чём ты думаешь</u></h3></div></div>
+  <div class="card red"><div><div class="mono">Правило №4</div><h3 data-r>Лучший дубль не идеальный, <u>а живой</u></h3></div></div>
 </section>
 
 <!-- APPLY -->
