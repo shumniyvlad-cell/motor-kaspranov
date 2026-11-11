@@ -770,6 +770,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <p>Оставь контакт и выбери факультет. Мы напишем, расскажем про ближайший поток и ответим на вопросы.</p>
         <p>Если ты действующий актёр, приложи ссылку на шоурил, и мы рассмотрим прослушивание сразу в мастерскую.</p>
         <span class="mono" style="color:var(--dim)">Ближайший поток: набор открыт</span>
+        <p style="margin-top:18px">Удобнее в Telegram? <a href="https://t.me/lizobezgrima_bot" style="color:var(--red2);border-bottom:1px solid">Напиши боту школы</a>.</p>
       </div>
       <div data-r="2">
         <form id="form" novalidate>
@@ -783,9 +784,10 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
           <label><span class="mono">Telegram или телефон</span><input name="contact" required placeholder="@username"></label>
           <label><span class="mono">Билет</span><select name="tier"><option>Партер</option><option>Первый ряд</option><option>Пока не знаю</option></select></label>
           <label><span class="mono">Пара слов о себе или ссылка на шоурил</span><textarea name="about" placeholder="Чем занимаешься и зачем тебе камера"></textarea></label>
+          <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
           <button class="btn red" type="submit" style="justify-content:center">Отправить заявку</button>
         </form>
-        <div class="ok" id="ok"><b>Снято!</b><p>Заявка записана. Это демо-версия сайта: форма пока никуда не отправляет, подключим к Telegram-боту перед запуском.</p></div>
+        <div class="ok" id="ok"><b>Снято!</b><p>Заявка у нас. Напишем тебе в ближайшее время и расскажем про поток.</p></div>
       </div>
     </div>
   </div>
@@ -866,11 +868,19 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById('f'+b.dataset.pick);if(r)r.checked=true})});
   document.querySelectorAll('[data-tier]').forEach(function(b){b.addEventListener('click',function(){document.querySelector('select[name=tier]').value=b.dataset.tier})});
 
-  // form (demo)
-  var form=document.getElementById('form');
+  // form → заявка в Telegram через сервер школы; если сервер недоступен, ведём в бота
+  var LEAD_URL='https://lead.89-169-53-247.sslip.io/lead', BOT='https://t.me/lizobezgrima_bot';
+  var form=document.getElementById('form'), okBox=document.getElementById('ok');
+  function botLink(){var f=['В кадре','Рилс','Старт','Профи'].indexOf((form.querySelector('[name=fac]:checked')||{}).value),t=['Партер','Первый ряд','Пока не знаю'].indexOf(form.tier.value);return BOT+'?start=f'+Math.max(f,0)+'_t'+Math.max(t,2)}
   form.addEventListener('submit',function(e){e.preventDefault();
     var ok=true;form.querySelectorAll('[required]').forEach(function(i){var bad=!i.value.trim();i.style.borderColor=bad?'#e5281b':'';if(bad)ok=false});
-    if(!ok)return;form.style.display='none';document.getElementById('ok').style.display='block';});
+    if(!ok)return;
+    var btn=form.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Отправляем…';
+    var data={name:form.name.value,contact:form.contact.value,fac:(form.querySelector('[name=fac]:checked')||{}).value,tier:form.tier.value,about:form.about.value,website:form.website.value};
+    fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){if(!r.ok)throw 0;form.style.display='none';okBox.style.display='block'})
+      .catch(function(){form.style.display='none';okBox.innerHTML='<b>Почти готово</b><p>Не получилось отправить с сайта. Оставь заявку в нашем Telegram-боте, это займёт минуту.</p><p style="margin-top:14px"><a class="btn red" href="'+botLink()+'" target="_blank" rel="noopener">Открыть бота</a></p>';okBox.style.display='block'});
+  });
 })();
 </script>
 </body>
