@@ -427,6 +427,23 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 @media (max-width:380px){.nav{gap:10px}.nav .navr .btn.ag{padding:8px 10px;font-size:11.5px}.logo{font-size:22px}}
 .kcard .kph{margin:14px 0 18px;aspect-ratio:857/1052;overflow:hidden;background:#151515}.kcard .kph img{width:100%;height:100%;object-fit:cover}
 .mcard .mnum{font:900 clamp(110px,13vw,180px)/.8 var(--cond);padding:20px 20px 10px;color:transparent;-webkit-text-stroke:1.5px var(--red)}.mcard .mnum small{font:500 14px var(--mono);letter-spacing:.1em;text-transform:uppercase;-webkit-text-stroke:0;color:var(--dim);margin-left:10px}
+
+.vid .grid{display:grid;grid-template-columns:1fr minmax(260px,400px);gap:clamp(30px,6vw,100px);align-items:center;margin-top:10px}
+.vid .txt p{font-size:18px;color:#d6cfc2;margin-top:22px;max-width:520px}
+.vid .txt .mono{display:block;margin-top:26px;color:var(--dim)}
+.vframe{position:relative;aspect-ratio:9/16;max-height:82vh;margin-left:auto;width:100%;background:#000;border:1px solid var(--line2);overflow:hidden}
+.vframe::before{content:"";position:absolute;left:0;right:0;top:0;height:18px;z-index:2;pointer-events:none;background:repeating-linear-gradient(-55deg,#fff 0 14px,var(--red) 14px 28px);opacity:.95}
+.vframe video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vplay{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:12px;padding-bottom:12%;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.65));border:0;cursor:pointer;color:#fff}
+.vplay i{width:76px;height:76px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 10px 40px rgba(229,40,27,.45);transition:transform .2s}
+.vplay i::after{content:"";border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
+.vplay:hover i{transform:scale(1.08)}
+.vplay span{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.vframe.on .vplay{display:none}
+.hero .watch{display:inline-flex;align-items:center;gap:10px;margin-top:16px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#e9e3d7}
+.hero .watch b{width:26px;height:26px;border-radius:50%;background:var(--red);display:grid;place-items:center}
+.hero .watch b::after{content:"";border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+@media (max-width:900px){.vid .grid{grid-template-columns:1fr}.vframe{margin:0 auto;max-width:420px;max-height:none}}
 </style>
 </head>
 <body>
@@ -471,6 +488,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <a href="#faculties" class="btn red">Выбрать факультет</a>
       <a href="#floors" class="btn">Как устроены этажи</a>
     </div>
+    <a href="#video" class="watch"><b></b>Как проходят занятия · 1:28</a>
   </div>
   <div class="quote">Камера не любит тех, кто старается ей понравиться<span>правило №1</span></div>
   <div class="slate mono">Сцена 01 · Дубль 1 · Камера А</div>
@@ -543,6 +561,25 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 
 
 
+
+
+<!-- VIDEO -->
+<section class="sec vid" id="video" style="padding-top:0">
+  <div class="wrap">
+    <div class="slate-h mono"><b>Сцена 02</b> На площадке</div>
+    <div class="grid">
+      <div class="txt">
+        <h2 class="h2" data-r>Как проходят<br><em>занятия</em></h2>
+        <p data-r="2">Полторы минуты с занятий и честно от учеников: с чем пришли и что поменялось.</p>
+        <span class="mono" data-r="3">Смотри со звуком · 1:28</span>
+      </div>
+      <div class="vframe" id="vframe" data-r>
+        <video id="promo" src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video>
+        <button class="vplay" id="vplay" type="button" aria-label="Смотреть видео"><i></i><span>Смотреть · 1:28</span></button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FLOORS -->
 <section class="sec" id="floors">
@@ -685,12 +722,12 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="grid">
       <div class="kcard mcard" data-r>
         <div class="clap"></div>
-        <span class="mono">Этаж 02 · по приглашению</span>
+        <span class="mono">Этаж 02 · по приглашению</span>
         <div class="mnum">12<small>мест</small></div>
-        <div class="nm">Работаешь лично с Артуром</div>
-        <div class="rl">Два месяца, сцены с партнёрами, съёмочный день и самопробы под реальные запросы.</div>
-        <div class="r"><span>Длительность</span><b>2 месяца</b></div>
-        <div class="r"><span>Формат</span><b>Труппа или соло</b></div>
+        <div class="nm">Работаешь лично с Артуром</div>
+        <div class="rl">Два месяца, сцены с партнёрами, съёмочный день и самопробы под реальные запросы.</div>
+        <div class="r"><span>Длительность</span><b>2 месяца</b></div>
+        <div class="r"><span>Формат</span><b>Труппа или соло</b></div>
       </div>
       <div>
         <ul class="inside">
@@ -781,7 +818,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <p>Оставь контакт и выбери факультет. Мы напишем, расскажем про ближайший поток и ответим на вопросы.</p>
         <p>Если ты действующий актёр, приложи ссылку на шоурил, и мы рассмотрим прослушивание сразу в мастерскую.</p>
         <span class="mono" style="color:var(--dim)">Ближайший поток: набор открыт</span>
-        <p style="margin-top:18px">Удобнее в Telegram? <a href="https://t.me/lizobezgrima_bot" style="color:var(--red2);border-bottom:1px solid">Напиши боту школы</a>.</p>
+        <p style="margin-top:18px">Удобнее в Telegram? <a href="https://t.me/lizobezgrima_bot" style="color:var(--red2);border-bottom:1px solid">Напиши боту школы</a>.</p>
       </div>
       <div data-r="2">
         <form id="form" novalidate>
@@ -798,7 +835,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
           <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
           <button class="btn red" type="submit" style="justify-content:center">Отправить заявку</button>
         </form>
-        <div class="ok" id="ok"><b>Снято!</b><p>Заявка у нас. Напишем тебе в ближайшее время и расскажем про поток.</p></div>
+        <div class="ok" id="ok"><b>Снято!</b><p>Заявка у нас. Напишем тебе в ближайшее время и расскажем про поток.</p></div>
       </div>
     </div>
   </div>
@@ -879,10 +916,10 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById('f'+b.dataset.pick);if(r)r.checked=true})});
   document.querySelectorAll('[data-tier]').forEach(function(b){b.addEventListener('click',function(){document.querySelector('select[name=tier]').value=b.dataset.tier})});
 
-  // form → заявка в Telegram через сервер школы; если сервер недоступен, ведём в бота
+  // form → заявка в Telegram через сервер школы; если сервер недоступен, ведём в бота
   var LEAD_URL='https://lead.89-169-53-247.sslip.io/lead', BOT='https://t.me/lizobezgrima_bot';
   var form=document.getElementById('form'), okBox=document.getElementById('ok');
-  function botLink(){var f=['В кадре','Рилс','Старт','Профи'].indexOf((form.querySelector('[name=fac]:checked')||{}).value),t=['Партер','Первый ряд','Пока не знаю'].indexOf(form.tier.value);return BOT+'?start=f'+Math.max(f,0)+'_t'+Math.max(t,2)}
+  function botLink(){var f=['В кадре','Рилс','Старт','Профи'].indexOf((form.querySelector('[name=fac]:checked')||{}).value),t=['Партер','Первый ряд','Пока не знаю'].indexOf(form.tier.value);return BOT+'?start=f'+Math.max(f,0)+'_t'+Math.max(t,2)}
   form.addEventListener('submit',function(e){e.preventDefault();
     var ok=true;form.querySelectorAll('[required]').forEach(function(i){var bad=!i.value.trim();i.style.borderColor=bad?'#e5281b':'';if(bad)ok=false});
     if(!ok)return;
@@ -890,8 +927,11 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     var data={name:form.name.value,contact:form.contact.value,fac:(form.querySelector('[name=fac]:checked')||{}).value,tier:form.tier.value,about:form.about.value,website:form.website.value};
     fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
       .then(function(r){if(!r.ok)throw 0;form.style.display='none';okBox.style.display='block'})
-      .catch(function(){form.style.display='none';okBox.innerHTML='<b>Почти готово</b><p>Не получилось отправить с сайта. Оставь заявку в нашем Telegram-боте, это займёт минуту.</p><p style="margin-top:14px"><a class="btn red" href="'+botLink()+'" target="_blank" rel="noopener">Открыть бота</a></p>';okBox.style.display='block'});
+      .catch(function(){form.style.display='none';okBox.innerHTML='<b>Почти готово</b><p>Не получилось отправить с сайта. Оставь заявку в нашем Telegram-боте, это займёт минуту.</p><p style="margin-top:14px"><a class="btn red" href="'+botLink()+'" target="_blank" rel="noopener">Открыть бота</a></p>';okBox.style.display='block'});
   });
+// видео
+  var vb=document.getElementById('vplay'),vv=document.getElementById('promo'),vf=document.getElementById('vframe');
+  if(vb&&vv){vb.addEventListener('click',function(){vf.classList.add('on');vv.controls=true;vv.play()});vv.addEventListener('play',function(){vf.classList.add('on')})}
 })();
 </script>
 </body>
