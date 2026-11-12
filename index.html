@@ -114,13 +114,13 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero .lead .sub{font:800 clamp(22px,2.3vw,32px)/1.05 var(--cond);text-transform:uppercase;letter-spacing:.01em;margin-bottom:14px}
 .hero .lead p{color:#cfc8bb;font-size:16px;margin-bottom:24px}
 .hero .lead .row{display:flex;gap:12px;flex-wrap:wrap}
-.hero .quote{position:absolute;z-index:5;right:var(--pad);bottom:clamp(40px,7vh,76px);max-width:300px;text-align:right;
+.hero .quote{position:absolute;z-index:5;right:calc(var(--pad) + 30px);bottom:clamp(84px,11vh,112px);max-width:300px;text-align:right;
   font:italic 400 clamp(20px,1.8vw,26px)/1.15 var(--serif);color:#d9d2c5}
 .hero .quote span{display:block;margin-top:10px;font:400 11px var(--mono);letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
 .hero .slate{position:absolute;z-index:5;left:50%;transform:translateX(-50%);bottom:clamp(18px,3vh,32px);padding:0 0 10px;color:var(--dim);white-space:nowrap}
 @media (max-width:900px){
   .hero{height:auto;min-height:0;display:flex;flex-direction:column;padding:118px var(--pad) 84px}
-  .hero .title{position:relative;top:auto;left:auto;font-size:26vw;z-index:1}
+  .hero .title{position:relative;top:auto;left:auto;font-size:22vw;z-index:1}
   .hero .title.front{display:none}
   .hero .lead .w2m{display:block;font:italic 500 44px/1 var(--serif);color:var(--red2);margin-bottom:8px}
   .hero .who{position:relative;left:auto;bottom:auto;transform:none;height:auto;width:100%;max-width:460px;align-self:center;margin-top:-4vw;-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 100%);mask-image:linear-gradient(to bottom,#000 62%,transparent 100%)}
@@ -519,8 +519,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .miniform .done{display:none;color:var(--paper)}
 @media (max-width:900px){.miniform{grid-template-columns:1fr}.miniform form{grid-template-columns:1fr}}
 @media (min-width:901px){
-  .hero{height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(100px,13vh,130px) var(--pad) clamp(40px,7vh,76px)}
-  .hero .title{position:relative;top:auto;left:auto;font-size:clamp(110px,min(25vw,44vh),420px)}
+  .hero{height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(100px,13vh,130px) var(--pad) clamp(84px,11vh,112px)}
+  .hero .title{position:relative;top:auto;left:auto;font-size:clamp(100px,min(19vw,34vh),330px)}
   .hero .title.front{display:none}
   .hero .title:not(.front) .w2{visibility:visible}
   .hero .lead{position:relative;left:auto;bottom:auto;margin-top:32px}
