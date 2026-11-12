@@ -465,11 +465,11 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .clips{margin-top:40px;overflow:hidden;--cw:calc((min(100vw,var(--max)) - 2*var(--pad) - 42px)/4);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .clips .track{display:flex;gap:14px;width:max-content;padding:0 14px 0 0}
 .clips .rev.clip{width:var(--cw);flex:none}
-.motion .clips .track{animation:clipsMove 36s linear infinite}
+.motion .clips .track{animation:clipsMove 54s linear infinite}
 .clips:hover .track,.clips.playing .track{animation-play-state:paused}
 @keyframes clipsMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:1000px){.clips{--cw:calc((100vw - 2*var(--pad) - 28px)/2.6)}}
-@media (max-width:700px){.clips{--cw:58vw}.motion .clips .track{animation-duration:28s}}
+@media (max-width:700px){.clips{--cw:58vw}.motion .clips .track{animation-duration:42s}}
 </style>
 </head>
 <body>
@@ -601,10 +601,14 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <div class="rev clip" data-r><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
         <div class="rev clip" data-r><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
         <div class="rev clip" data-r><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
         <div class="rev clip" aria-hidden="true"><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
         <div class="rev clip" aria-hidden="true"><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
         <div class="rev clip" aria-hidden="true"><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
         <div class="rev clip" aria-hidden="true"><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
     </div>
   </div>
 </section>
