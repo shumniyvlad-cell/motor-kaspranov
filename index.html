@@ -470,6 +470,54 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 @keyframes clipsMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:1000px){.clips{--cw:calc((100vw - 2*var(--pad) - 28px)/2.6)}}
 @media (max-width:700px){.clips{--cw:58vw}.motion .clips .track{animation-duration:42s}}
+
+/* полоса фактов */
+.factbar{border-bottom:1px solid var(--line);background:var(--ink)}
+.factbar .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.factbar div.f{padding:22px 18px 22px 0;border-right:1px solid var(--line)}
+.factbar div.f+div.f{padding-left:22px}
+.factbar div.f:last-child{border-right:0}
+.factbar b{display:block;font:900 clamp(30px,3.2vw,46px)/.95 var(--cond);text-transform:uppercase}
+.factbar span{display:block;margin-top:6px;color:var(--dim);font:400 12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:760px){.factbar .wrap{grid-template-columns:1fr 1fr}.factbar div.f:nth-child(2){border-right:0}.factbar div.f:nth-child(-n+2){border-bottom:1px solid var(--line)}.factbar div.f+div.f:nth-child(3){padding-left:0}}
+/* гости */
+.guests{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:46px}
+.guest{border:1px solid var(--line2);background:var(--ink2)}
+.guest .ph{aspect-ratio:1;overflow:hidden;background:#151515}
+.guest .ph img{width:100%;height:100%;object-fit:cover}
+.guest .t{padding:18px 20px 22px}
+.guest .t .mono{color:var(--red)}
+.guest h4{font:800 30px/1 var(--cond);text-transform:uppercase;margin:8px 0 10px}
+.guest p{color:#c9c2b5;font-size:15px}
+.guest.more{display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(236,230,218,.025) 14px 15px);border-style:dashed}
+.guest.more b{font:900 clamp(60px,6vw,90px)/.8 var(--cond);color:transparent;-webkit-text-stroke:1.5px var(--red)}
+.guest.more h4{margin-top:18px}
+@media (max-width:900px){.guests{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.guests{grid-template-columns:1fr}}
+/* с чем уйдёшь */
+.take{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);margin-top:46px;align-items:start}
+.take ol{list-style:none;border-top:1px solid var(--line2)}
+.take li{display:grid;grid-template-columns:42px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px;color:#d6cfc2}
+.take li span{font:400 12px/1.9 var(--mono);color:var(--red)}
+.take li b{color:var(--paper);font-weight:600}
+.keep{display:grid;gap:18px}
+.keep figure{border:1px solid var(--line2);background:#0b0b0b}
+.keep img{width:100%;display:block}
+.keep figcaption{padding:16px 20px 20px}
+.keep figcaption b{display:block;font:800 26px/1 var(--cond);text-transform:uppercase;margin-bottom:8px}
+.keep figcaption p{color:#c9c2b5;font-size:15px}
+@media (max-width:900px){.take{grid-template-columns:1fr}}
+/* рассрочка */
+.inst{display:block;font:500 13px var(--sans);margin-top:4px;opacity:.75}
+.plan .inst{margin:-8px 0 12px}
+.instnote{margin-top:22px;color:var(--dim);font-size:14px;max-width:640px}
+/* мини-форма */
+.miniform{margin-top:56px;border:1px solid var(--red);background:#1a1110;padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
+.miniform h3{font:800 clamp(28px,3vw,42px)/1 var(--cond);text-transform:uppercase}
+.miniform p{color:#c9c2b5;font-size:15px;margin-top:8px}
+.miniform form{display:grid;grid-template-columns:1fr 1fr auto;gap:10px}
+.miniform .done{display:none;color:var(--paper)}
+@media (max-width:900px){.miniform{grid-template-columns:1fr}.miniform form{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -520,6 +568,12 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   <div class="slate mono">Сцена 01 · Дубль 1 · Камера А</div>
 </section>
 
+<div class="factbar"><div class="wrap">
+  <div class="f"><b>8 недель</b><span>обучение</span></div>
+  <div class="f"><b>Ноябрь</b><span>старт потока</span></div>
+  <div class="f"><b>До 20</b><span>человек в группе</span></div>
+  <div class="f"><b>Сертификат</b><span>и тарелка на счастье</span></div>
+</div></div>
 <div class="ticker" aria-hidden="true"><div class="track" id="ticker">
   <span>«Молодёжка. Новая смена»</span><span>«Ледниковый период» · Первый канал</span><span>10 лет в хоккее</span><span>«Космос засыпает»</span><span>«СуперИвановы»</span><span>«Тень. Взять Гордея»</span>
 </div></div>
@@ -589,26 +643,41 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 
 
 
+
+<!-- GUESTS -->
+<section class="sec" id="guests" style="padding-top:0">
+  <div class="wrap">
+    <div class="slate-h mono"><b>Сцена 02</b> Гости курса</div>
+    <h2 class="h2" data-r>Приходят те,<br>кто <em>снимается</em></h2>
+    <p class="intro" data-r="2">На занятия приходят действующие актёры, режиссёры и кастинг-директоры. Разбирают ваши работы и рассказывают, как всё устроено на площадке.</p>
+    <div class="guests">
+      <div class="guest" data-r><div class="ph"><img src="img/guests/davydov.jpg" alt="Константин Давыдов" loading="lazy"></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Константин Давыдов</h4><p>Паша в сериале «Чернобыль: Зона отчуждения», «Бесстыдники». Выпускник Щукинского училища.</p></div></div>
+      <div class="guest" data-r="2"><div class="ph"><img src="img/guests/rudakovsky.jpg" alt="Марк Рудаковский" loading="lazy"></div><div class="t"><span class="mono">Актёр</span><h4>Марк Рудаковский</h4><p>Актёр и хоккеист, участник шоу «Титаны». Разбирал этюды учеников и давал обратную связь.</p></div></div>
+      <div class="guest more" data-r="3"><b>+</b><h4>И другие гости потока</h4><p>Актёры, режиссёры и кастинг-директоры. Имена объявляем перед стартом.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- VIDEO -->
 <section class="sec vid" id="video" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 02</b> На площадке</div>
-    <h2 class="h2" data-r>Как проходят <em>занятия</em></h2>
+    <div class="slate-h mono"><b>Сцена 02</b> На площадке</div>
+    <h2 class="h2" data-r>Как проходят <em>занятия</em></h2>
   </div>
   <div class="clips" id="clips">
     <div class="track">
-        <div class="rev clip" data-r><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
         <div class="rev clip" data-r><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
         <div class="rev clip" data-r><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
         <div class="rev clip" data-r><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
-        <div class="rev clip" data-r><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
-        <div class="rev clip" data-r><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
         <div class="rev clip" aria-hidden="true"><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
         <div class="rev clip" aria-hidden="true"><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
         <div class="rev clip" aria-hidden="true"><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
     </div>
   </div>
 </section>
@@ -713,6 +782,17 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       </div>
       <div class="bot"><div class="chips"><span class="chip">8 недель</span><span class="chip">12 живых занятий</span><span class="chip">самопроба под роль</span><span class="chip">быстрый вход на этаж 02</span></div><a href="#apply" class="btn red sm" data-pick="3">Хочу на факультет</a></div>
     </div>
+
+    <div class="miniform" data-r>
+      <div><h3>Не знаешь, какой факультет?</h3><p>Оставь контакт, подскажем и расскажем про ближайший поток.</p></div>
+      <form id="miniform" novalidate>
+        <input name="name" required placeholder="Имя" autocomplete="name">
+        <input name="contact" required placeholder="Telegram или телефон">
+        <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <button class="btn red" type="submit">Подскажите</button>
+      </form>
+      <div class="done" id="minidone"><b>Спасибо!</b> Скоро напишем.</div>
+    </div>
   </div>
 </section>
 
@@ -726,6 +806,30 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <div class="day" data-r="2"><span class="tc"></span><span class="mono">Чт</span><h4>Практика</h4><p>Второе занятие или практика с куратором: этюды, сцены, работа в парах.</p></div>
       <div class="day" data-r="3"><span class="tc"></span><span class="mono">Пт</span><h4>Самопроба</h4><p>Домашнее задание: снимаешь дубль на телефон и сдаёшь в платформу.</p></div>
       <div class="day" data-r="4"><span class="tc"></span><span class="mono">Сб–Вс</span><h4>Разбор</h4><p>Труппа из восьми человек, куратор и честный разбор каждого дубля. Без «всё классно».</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TAKEAWAY -->
+<section class="sec" id="takeaway" style="padding-top:0">
+  <div class="wrap">
+    <div class="slate-h mono"><b>Финал</b> С чем уйдёшь</div>
+    <h2 class="h2" data-r>Портфолио<br><em>на руках</em></h2>
+    <div class="take">
+      <div>
+        <p class="intro" data-r style="margin:0 0 22px">К концу курса у тебя есть материал, который можно отправить на кастинг или выложить в соцсети.</p>
+        <ol>
+          <li data-r><span>01</span><div><b>Видеовизитка.</b> Кто ты, за 30–60 секунд, без текста по бумажке.</div></li>
+          <li data-r><span>02</span><div><b>Самопроба на камеру.</b> Снятая и разобранная, как для настоящего кастинга.</div></li>
+          <li data-r><span>03</span><div><b>«Премьера».</b> Финальная работа: монолог, сцена или серия роликов, по факультету.</div></li>
+          <li data-r><span>04</span><div><b>Разбор от Артура и Киры.</b> Что получилось, что мешает и куда расти дальше.</div></li>
+        </ol>
+      </div>
+      <div class="keep">
+        <figure data-r><img src="img/certificate.jpg" alt="Именной сертификат школы «Лицо без грима»" loading="lazy"><figcaption><b>Именной сертификат</b><p>С подписью Артура. Подтверждает, что ты прошёл программу и сдал «Премьеру». Это сертификат школы, а не государственный диплом.</p></figcaption></figure>
+        <figure data-r="2"><img src="img/plate.jpg" alt="Разбитая на счастье тарелка рядом с хлопушкой" loading="lazy"><figcaption><b>Тарелка на счастье</b><p>Как на съёмочной площадке: в первый день разбиваем тарелку, и каждый забирает свой осколок. В последний день собираем её вместе.</p></figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
@@ -771,8 +875,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
           <li data-r><span>06</span>Карточка в базе агентства и сертификат мастерской</li>
         </ul>
         <div class="plans">
-          <div class="plan" data-r><span class="mono">Формат А</span><h4>Труппа</h4><div class="p">90 000 ₽</div><p>Мини-группа до шести человек. Разбор с Артуром раз в две недели, общий съёмочный день.</p></div>
-          <div class="plan hot" data-r="2"><span class="mono">Формат Б</span><h4>Соло</h4><div class="p">140 000 ₽</div><p>Только ты и Артур. Разбор каждую неделю, личный съёмочный день и сцена под твой типаж.</p></div>
+          <div class="plan" data-r><span class="mono">Формат А</span><h4>Труппа</h4><div class="p">90 000 ₽</div><span class="inst">или 12 × 7 500 ₽</span><p>Мини-группа до шести человек. Разбор с Артуром раз в две недели, общий съёмочный день.</p></div>
+          <div class="plan hot" data-r="2"><span class="mono">Формат Б</span><h4>Соло</h4><div class="p">140 000 ₽</div><span class="inst">или 12 × 11 667 ₽</span><p>Только ты и Артур. Разбор каждую неделю, личный съёмочный день и сцена под твой типаж.</p></div>
         </div>
       </div>
     </div>
@@ -822,15 +926,16 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <div class="hd"><span class="mono">Билет</span><span class="row">РЯД 5 · МЕСТО 8</span></div>
         <div class="bd"><h4>Партер</h4><ul><li>12 живых занятий с Артуром</li><li>Практики с куратором</li><li>Труппа из 8 человек</li><li>Разбор каждой самопробы</li><li>«Премьера», сертификат, отбор</li></ul></div>
         <div class="bc"></div>
-        <div class="ft"><div class="price">34 900<small>₽</small></div><a href="https://t.me/lizobezgrima_bot?start=buy_t0" target="_blank" rel="noopener" class="go">Взять</a></div>
+        <div class="ft"><div class="price">34 900<small>₽</small><span class="inst">или 12 × 2 909 ₽</span></div><a href="https://t.me/lizobezgrima_bot?start=buy_t0" target="_blank" rel="noopener" class="go">Взять</a></div>
       </div>
       <div class="ticket" data-r="3">
         <div class="hd"><span class="mono">Билет</span><span class="row">РЯД 1 · МЕСТО 1</span></div>
         <div class="bd"><h4>Первый ряд</h4><ul><li>Всё из «Партера»</li><li>2 личных разбора с Артуром</li><li>Разбор «Премьеры» лично</li><li>Приоритет на отборе</li><li>Мест в потоке: 10</li></ul></div>
         <div class="bc"></div>
-        <div class="ft"><div class="price">69 900<small>₽</small></div><a href="https://t.me/lizobezgrima_bot?start=buy_t1" target="_blank" rel="noopener" class="go">Взять</a></div>
+        <div class="ft"><div class="price">69 900<small>₽</small><span class="inst">или 12 × 5 825 ₽</span></div><a href="https://t.me/lizobezgrima_bot?start=buy_t1" target="_blank" rel="noopener" class="go">Взять</a></div>
       </div>
     </div>
+    <p class="instnote" data-r>Можно частями: рассрочка на 12 месяцев без переплаты через банк-партнёр. Условия подтвердим, когда свяжемся после заявки.</p>
   </div>
 </section>
 
@@ -987,6 +1092,13 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 // лента видео: стоит, пока смотрят ролик
   var clipsEl=document.getElementById('clips');
   if(clipsEl){clipsEl.querySelectorAll('video').forEach(function(v){v.addEventListener('play',function(){clipsEl.classList.add('playing')});v.addEventListener('pause',function(){if(![].some.call(clipsEl.querySelectorAll('video'),function(x){return !x.paused}))clipsEl.classList.remove('playing')})})}
+// мини-форма «подскажите»
+  var mf=document.getElementById('miniform');
+  if(mf){mf.addEventListener('submit',function(e){e.preventDefault();var ok=true;mf.querySelectorAll('[required]').forEach(function(i){var bad=!i.value.trim();i.style.borderColor=bad?'#e5281b':'';if(bad)ok=false});if(!ok)return;
+    var bt=mf.querySelector('button');bt.disabled=true;
+    fetch(typeof LEAD_URL!=='undefined'?LEAD_URL:'https://lead.89-169-53-247.sslip.io/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:mf.name.value,contact:mf.contact.value,fac:'Консультация: какой факультет',tier:'',about:'',website:mf.website.value})})
+      .then(function(r){if(!r.ok)throw 0;mf.style.display='none';document.getElementById('minidone').style.display='block'})
+      .catch(function(){location.href='https://t.me/lizobezgrima_bot'})})}
 })();
 </script>
 </body>
