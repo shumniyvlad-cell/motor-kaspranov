@@ -460,10 +460,16 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .clips-h{margin-top:clamp(50px,7vw,90px);display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
 .clips-h h3{font:800 clamp(30px,3.2vw,46px)/1 var(--cond);text-transform:uppercase}
 .clips-h span{color:var(--dim)}
-.clips{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 42px)/4);gap:14px;margin-top:40px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;min-width:0}
 .rev.clip{aspect-ratio:9/16}
-@media (max-width:1000px){.clips{grid-auto-columns:calc((100% - 28px)/2.5)}}
-@media (max-width:700px){.clips{grid-auto-columns:66%}}
+
+.clips{margin-top:40px;overflow:hidden;--cw:calc((min(100vw,var(--max)) - 2*var(--pad) - 42px)/4);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.clips .track{display:flex;gap:14px;width:max-content;padding:0 14px 0 0}
+.clips .rev.clip{width:var(--cw);flex:none}
+.motion .clips .track{animation:clipsMove 36s linear infinite}
+.clips:hover .track,.clips.playing .track{animation-play-state:paused}
+@keyframes clipsMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:1000px){.clips{--cw:calc((100vw - 2*var(--pad) - 28px)/2.6)}}
+@media (max-width:700px){.clips{--cw:58vw}.motion .clips .track{animation-duration:28s}}
 </style>
 </head>
 <body>
@@ -587,16 +593,18 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <section class="sec vid" id="video" style="padding-top:0">
   <div class="wrap">
     <div class="slate-h mono"><b>Сцена 02</b> На площадке</div>
-    <div class="txt">
-        <h2 class="h2" data-r>Как проходят<br><em>занятия</em></h2>
-        <p data-r="2">Ученики о себе до и после, гости-актёры и разборы Артура прямо на занятиях.</p>
-        <span class="mono" data-r="3">Смотри со звуком</span>
-    </div>
-    <div class="clips">
-      <div class="rev clip" data-r><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
-      <div class="rev clip" data-r><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
-      <div class="rev clip" data-r><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
-      <div class="rev clip" data-r><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
+    <h2 class="h2" data-r>Как проходят <em>занятия</em></h2>
+  </div>
+  <div class="clips" id="clips">
+    <div class="track">
+        <div class="rev clip" data-r><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
     </div>
   </div>
 </section>
@@ -972,6 +980,9 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 // отзывы: играет один ролик за раз
   var revs=[].slice.call(document.querySelectorAll('.rev'));
   revs.forEach(function(r){var v=r.querySelector('video');r.querySelector('.vplay').addEventListener('click',function(){revs.forEach(function(o){if(o!==r){o.querySelector('video').pause()}});if(vv&&!vv.paused)vv.pause();r.classList.add('on');v.controls=true;v.play()});v.addEventListener('play',function(){revs.forEach(function(o){if(o!==r)o.querySelector('video').pause()})})});
+// лента видео: стоит, пока смотрят ролик
+  var clipsEl=document.getElementById('clips');
+  if(clipsEl){clipsEl.querySelectorAll('video').forEach(function(v){v.addEventListener('play',function(){clipsEl.classList.add('playing')});v.addEventListener('pause',function(){if(![].some.call(clipsEl.querySelectorAll('video'),function(x){return !x.paused}))clipsEl.classList.remove('playing')})})}
 })();
 </script>
 </body>
