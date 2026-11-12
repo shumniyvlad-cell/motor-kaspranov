@@ -518,6 +518,13 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .miniform form{display:grid;grid-template-columns:1fr 1fr auto;gap:10px}
 .miniform .done{display:none;color:var(--paper)}
 @media (max-width:900px){.miniform{grid-template-columns:1fr}.miniform form{grid-template-columns:1fr}}
+@media (min-width:901px){
+  .hero{height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(100px,13vh,130px) var(--pad) clamp(40px,7vh,76px)}
+  .hero .title{position:relative;top:auto;left:auto;font-size:clamp(110px,min(25vw,44vh),420px)}
+  .hero .title.front{display:none}
+  .hero .title:not(.front) .w2{visibility:visible}
+  .hero .lead{position:relative;left:auto;bottom:auto;margin-top:32px}
+}
 </style>
 </head>
 <body>
@@ -652,7 +659,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <p class="intro" data-r="2">На занятия приходят действующие актёры, режиссёры и кастинг-директоры. Разбирают ваши работы и рассказывают, как всё устроено на площадке.</p>
     <div class="guests">
       <div class="guest" data-r><div class="ph"><img src="img/guests/davydov.jpg" alt="Константин Давыдов" loading="lazy"></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Константин Давыдов</h4><p>Паша в сериале «Чернобыль: Зона отчуждения», «Бесстыдники». Выпускник Щукинского училища.</p></div></div>
-      <div class="guest" data-r="2"><div class="ph"><img src="img/guests/rudakovsky.jpg" alt="Марк Рудаковский" loading="lazy"></div><div class="t"><span class="mono">Актёр</span><h4>Марк Рудаковский</h4><p>Актёр и хоккеист, участник шоу «Титаны». Разбирал этюды учеников и давал обратную связь.</p></div></div>
+      <div class="guest" data-r="2"><div class="ph"><img src="img/guests/rudakovsky.jpg" alt="Марк Рудаковский" loading="lazy"></div><div class="t"><span class="mono">Актёр и хоккеист</span><h4>Марк Рудаковский</h4><p>Актёр и хоккеист, участник шоу «Титаны». Разбирал этюды учеников и давал обратную связь.</p></div></div>
       <div class="guest more" data-r="3"><b>+</b><h4>И другие гости потока</h4><p>Актёры, режиссёры и кастинг-директоры. Имена объявляем перед стартом.</p></div>
     </div>
   </div>
