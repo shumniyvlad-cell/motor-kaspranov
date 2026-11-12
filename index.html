@@ -460,8 +460,9 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .clips-h{margin-top:clamp(50px,7vw,90px);display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
 .clips-h h3{font:800 clamp(30px,3.2vw,46px)/1 var(--cond);text-transform:uppercase}
 .clips-h span{color:var(--dim)}
-.clips{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 28px)/3);gap:14px;margin-top:26px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;min-width:0;max-width:1000px}
+.clips{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 42px)/4);gap:14px;margin-top:40px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;min-width:0}
 .rev.clip{aspect-ratio:9/16}
+@media (max-width:1000px){.clips{grid-auto-columns:calc((100% - 28px)/2.5)}}
 @media (max-width:700px){.clips{grid-auto-columns:66%}}
 </style>
 </head>
@@ -507,7 +508,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <a href="#faculties" class="btn red">Выбрать факультет</a>
       <a href="#floors" class="btn">Как устроены этажи</a>
     </div>
-    <a href="#video" class="watch"><b></b>Как проходят занятия · 1:28</a>
+    <a href="#video" class="watch"><b></b>Как проходят занятия</a>
   </div>
   <div class="quote">Камера не любит тех, кто старается ей понравиться<span>правило №1</span></div>
   <div class="slate mono">Сцена 01 · Дубль 1 · Камера А</div>
@@ -585,21 +586,14 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- VIDEO -->
 <section class="sec vid" id="video" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 02</b> На площадке</div>
-    <div class="grid">
-      <div class="txt">
+    <div class="slate-h mono"><b>Сцена 02</b> На площадке</div>
+    <div class="txt">
         <h2 class="h2" data-r>Как проходят<br><em>занятия</em></h2>
-        <p data-r="2">Полторы минуты с занятий и честно от учеников: с чем пришли и что поменялось.</p>
-        <span class="mono" data-r="3">Смотри со звуком · 1:28</span>
-      </div>
-      <div class="vframe" id="vframe" data-r>
-        <video id="promo" src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video>
-        <button class="vplay" id="vplay" type="button" aria-label="Смотреть видео"><i></i><span>Смотреть · 1:28</span></button>
-      </div>
+        <p data-r="2">Ученики о себе до и после, гости-актёры и разборы Артура прямо на занятиях.</p>
+        <span class="mono" data-r="3">Смотри со звуком</span>
     </div>
-
-    <div class="clips-h" data-r><h3>Ещё с занятий</h3><span class="mono">гости, обратная связь, разборы</span></div>
     <div class="clips">
+      <div class="rev clip" data-r><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
       <div class="rev clip" data-r><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
       <div class="rev clip" data-r><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
       <div class="rev clip" data-r><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
