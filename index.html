@@ -444,6 +444,18 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .hero .watch b{width:26px;height:26px;border-radius:50%;background:var(--red);display:grid;place-items:center}
 .hero .watch b::after{content:"";border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
 @media (max-width:900px){.vid .grid{grid-template-columns:1fr}.vframe{margin:0 auto;max-width:420px;max-height:none}}
+
+.revs{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 42px)/4);min-width:0;gap:14px;margin-top:46px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.rev{position:relative;aspect-ratio:4/5;background:#000;border:1px solid var(--line2);overflow:hidden;scroll-snap-align:start}
+.rev video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rev .vplay{background:none;justify-content:flex-start;align-items:flex-end;padding:14px}
+.rev .vplay i{width:52px;height:52px}
+.rev .vplay i::after{border-left-width:16px;border-top-width:10px;border-bottom-width:10px;margin-left:4px}
+.rev.on .vplay{display:none}
+.revs-hint{margin-top:14px;color:var(--dim)}
+@media (max-width:1100px){.revs{grid-auto-columns:calc((100% - 14px)/2.3)}}
+@media (max-width:700px){.revs{grid-auto-columns:78%}}
+@media (min-width:1200px){.revs-hint{display:none}}
 </style>
 </head>
 <body>
@@ -570,7 +582,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="grid">
       <div class="txt">
         <h2 class="h2" data-r>Как проходят<br><em>занятия</em></h2>
-        <p data-r="2">Полторы минуты с занятий и честно от учеников: с чем пришли и что поменялось.</p>
+        <p data-r="2">Полторы минуты с занятий и честно от учеников: с чем пришли и что поменялось.</p>
         <span class="mono" data-r="3">Смотри со звуком · 1:28</span>
       </div>
       <div class="vframe" id="vframe" data-r>
@@ -763,6 +775,22 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   </div>
 </section>
 
+
+<!-- REVIEWS -->
+<section class="sec" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="slate-h mono"><b>Из зала</b> Отзывы учеников</div>
+    <h2 class="h2" data-r>Говорят те,<br>кто уже <em>прошёл</em></h2>
+    <div class="revs">
+      <div class="rev" data-r><video src="img/otzyvy/kozyrenko.mp4" poster="img/otzyvy/kozyrenko.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Валентин Козыренко"><i></i></button></div>
+      <div class="rev" data-r><video src="img/otzyvy/bobrov.mp4" poster="img/otzyvy/bobrov.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Илья Бобров"><i></i></button></div>
+      <div class="rev" data-r><video src="img/otzyvy/surovegina.mp4" poster="img/otzyvy/surovegina.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Вика Суроегина"><i></i></button></div>
+      <div class="rev" data-r><video src="img/otzyvy/ilchegulova.mp4" poster="img/otzyvy/ilchegulova.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Екатерина Ильчегулова"><i></i></button></div>
+    </div>
+    <div class="revs-hint mono">← листай →</div>
+  </div>
+</section>
+
 <!-- TICKETS -->
 <section class="sec" id="tickets">
   <div class="wrap">
@@ -932,6 +960,9 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 // видео
   var vb=document.getElementById('vplay'),vv=document.getElementById('promo'),vf=document.getElementById('vframe');
   if(vb&&vv){vb.addEventListener('click',function(){vf.classList.add('on');vv.controls=true;vv.play()});vv.addEventListener('play',function(){vf.classList.add('on')})}
+// отзывы: играет один ролик за раз
+  var revs=[].slice.call(document.querySelectorAll('.rev'));
+  revs.forEach(function(r){var v=r.querySelector('video');r.querySelector('.vplay').addEventListener('click',function(){revs.forEach(function(o){if(o!==r){o.querySelector('video').pause()}});if(vv&&!vv.paused)vv.pause();r.classList.add('on');v.controls=true;v.play()});v.addEventListener('play',function(){revs.forEach(function(o){if(o!==r)o.querySelector('video').pause()})})});
 })();
 </script>
 </body>
