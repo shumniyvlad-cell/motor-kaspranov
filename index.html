@@ -445,7 +445,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .hero .watch b::after{content:"";border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
 @media (max-width:900px){.vid .grid{grid-template-columns:1fr}.vframe{margin:0 auto;max-width:420px;max-height:none}}
 
-.revs{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 42px)/4);min-width:0;gap:14px;margin-top:46px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
+.revs{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 56px)/5);min-width:0;gap:14px;margin-top:46px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin}
 .rev{position:relative;aspect-ratio:4/5;background:#000;border:1px solid var(--line2);overflow:hidden;scroll-snap-align:start}
 .rev video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .rev .vplay{background:none;justify-content:flex-start;align-items:flex-end;padding:14px}
@@ -782,6 +782,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="slate-h mono"><b>Из зала</b> Отзывы учеников</div>
     <h2 class="h2" data-r>Говорят те,<br>кто уже <em>прошёл</em></h2>
     <div class="revs">
+      <div class="rev" data-r><video src="img/otzyvy/zinovyeva.mp4" poster="img/otzyvy/zinovyeva.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Вика Зиновьева"><i></i></button></div>
       <div class="rev" data-r><video src="img/otzyvy/kozyrenko.mp4" poster="img/otzyvy/kozyrenko.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Валентин Козыренко"><i></i></button></div>
       <div class="rev" data-r><video src="img/otzyvy/bobrov.mp4" poster="img/otzyvy/bobrov.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Илья Бобров"><i></i></button></div>
       <div class="rev" data-r><video src="img/otzyvy/surovegina.mp4" poster="img/otzyvy/surovegina.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Вика Суроегина"><i></i></button></div>
