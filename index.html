@@ -1006,7 +1006,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   },motion?42:1000);
 
   // ticker duplicate
-  var tk=document.getElementById('ticker');tk.innerHTML+=tk.innerHTML;
+  var tk=document.getElementById('ticker');if(tk)tk.innerHTML+=tk.innerHTML;
 
   // nav
   var nav=document.getElementById('nav'),mcta=document.getElementById('mcta');
