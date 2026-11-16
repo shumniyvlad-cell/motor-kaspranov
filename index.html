@@ -530,6 +530,14 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .consent input{width:18px;height:18px;flex:none;margin-top:1px;accent-color:var(--red);padding:0}
 .consent a{color:#c9c2b5;border-bottom:1px solid rgba(236,230,218,.3)}
 @media (max-width:700px){.credits{padding-bottom:100px}}
+
+.probes{padding:24px clamp(18px,2.4vw,34px) 26px;border-top:1px solid var(--line);background:#120d0c}
+.probes .mono{color:var(--red)}
+.probes h4{font:800 28px/1 var(--cond);text-transform:uppercase;margin:8px 0 8px}
+.probes p{color:#c9c2b5;font-size:15px;max-width:720px}
+.probes .pl{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.probes .pl span{padding:9px 14px;border:1px solid var(--line2);font:800 18px/1 var(--cond);text-transform:uppercase;letter-spacing:.01em}
+.probes .pl span b{color:var(--red2);font-weight:800}
 </style>
 </head>
 <body>
@@ -698,7 +706,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   <div class="wrap">
     <div class="slate-h mono"><b>Сцена 06</b> Этаж 01 · Факультеты</div>
     <h2 class="h2" data-r>Четыре факультета.<br>Одна <em>камера</em></h2>
-    <p class="intro" data-r="2">Каждый факультет — это 3 месяца, 3 акта и живые занятия с Артуром в Zoom каждую неделю. Финал у всех один: «Премьера», твоя работа на камеру, которую смотрит Артур. После неё именной сертификат.</p>
+    <p class="intro" data-r="2">Каждый факультет — это 3 месяца, 3 акта и живые занятия с Артуром в Zoom каждую неделю. Финал у всех один: «Премьера», твоя работа на камеру, которую смотрит Артур. После неё именной сертификат.</p>
 
     <div class="tabs" role="tablist">
                   <button class="tab on" role="tab" data-f="0"><div class="clap"></div><span class="no mono">Факультет 01</span><b>В кадре</b><small>Эксперты и спикеры</small></button>
@@ -749,6 +757,12 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <div class="act"><span class="mono">Акт II</span><h4>Инструменты</h4><ol><li>Сценическая речь и дикция</li><li>Пластика и тело</li><li>Партнёр: слушать и отвечать</li><li>Работа с текстом роли</li></ol></div>
         <div class="act"><span class="mono">Акт III</span><h4>Профессия</h4><ol><li>Театр и кино: в чём разница</li><li>Как устроены кастинги</li><li>Визитка, фото, анкета в базе</li><li class="fin">Премьера: монолог и сцена на камеру</li></ol></div>
       </div>
+      <div class="probes">
+        <span class="mono">Каждую неделю</span>
+        <h4>Новые пробы на&nbsp;разном материале</h4>
+        <p>Каждую неделю пробуешься на&nbsp;новом материале и&nbsp;получаешь разбор. За&nbsp;три месяца у&nbsp;тебя десятки проб в&nbsp;разных жанрах и&nbsp;эпохах, а&nbsp;не&nbsp;одна выученная сцена.</p>
+        <div class="pl"><span>Русское кино</span><span>Советское кино</span><span>Голливуд</span><span>Британское кино</span><span>Пьесы</span><span>Стихи</span></div>
+      </div>
       <div class="bot"><div class="chips"><span class="chip">3 месяца</span><span class="chip">занятия каждую неделю</span><span class="chip">самопроба + визитка</span><span class="chip">ИИ-шоурил</span><span class="chip">труппа 8 чел.</span></div><a href="#apply" class="btn red sm" data-pick="2">Хочу на факультет</a></div>
     </div>
 
@@ -763,6 +777,12 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <div class="act"><span class="mono">Акт I</span><h4>Камера</h4><ol><li>Со сцены в кадр: меняем способ существования</li><li>Глубина: внутренний монолог и то, что не сыграть словами</li><li>Как тебя будут резать на монтаже</li><li>Непрерывность и повтор дублей</li><li>Жанры: драма, комедия, экшн</li></ol></div>
         <div class="act"><span class="mono">Акт II</span><h4>Пробы</h4><ol><li>Разобрать сцену за ночь до проб</li><li>Самопробы, которые смотрят до конца</li><li>Разбор реальных проб с кастинга</li><li>Как получить второй тур</li></ol></div>
         <div class="act"><span class="mono">Акт III</span><h4>Карьера</h4><ol><li>Визитка и шоурил: что смотрит кастинг</li><li>Агентства и базы: как с ними работать</li><li>Соцсети актёра</li><li class="fin">Премьера: самопроба под реальную роль</li></ol></div>
+      </div>
+      <div class="probes">
+        <span class="mono">Каждую неделю</span>
+        <h4>Новые пробы на&nbsp;разном материале</h4>
+        <p>Каждую неделю пробуешься на&nbsp;новом материале и&nbsp;получаешь разбор. За&nbsp;три месяца у&nbsp;тебя десятки проб в&nbsp;разных жанрах и&nbsp;эпохах, а&nbsp;не&nbsp;одна выученная сцена.</p>
+        <div class="pl"><span>Русское кино</span><span>Советское кино</span><span>Голливуд</span><span>Британское кино</span><span>Пьесы</span><span>Стихи</span></div>
       </div>
       <div class="bot"><div class="chips"><span class="chip">3 месяца</span><span class="chip">занятия каждую неделю</span><span class="chip">самопроба под роль</span><span class="chip">ИИ-шоурил</span><span class="chip">быстрый вход на этаж 02</span></div><a href="#apply" class="btn red sm" data-pick="3">Хочу на факультет</a></div>
     </div>
