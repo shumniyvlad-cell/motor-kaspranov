@@ -558,6 +558,22 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .wins{margin:34px 0 0;max-width:820px;padding:22px 24px;border:1px solid var(--line2);background:#120d0c}
 .wins .mono{color:var(--red)}
 .wins p{margin-top:8px;color:#e1dbcf;font-size:17px;line-height:1.5}
+/* 19.11: путь ученика вместо этажей, название целиком на телефоне */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line2)}
+.steps>li{padding:28px 24px 32px 0;border-right:1px solid var(--line)}
+.steps>li+li{padding-left:24px}
+.steps>li:last-child{border-right:0}
+.steps .sn{display:block;font:900 clamp(56px,5vw,84px)/.85 var(--cond);color:transparent;-webkit-text-stroke:1.5px var(--red)}
+.steps h3{font:800 clamp(24px,2.2vw,30px)/1.02 var(--cond);text-transform:uppercase;margin:16px 0 12px;text-wrap:balance}
+.steps p,.steps ul{color:#c9c2b5;font-size:15px;line-height:1.5}
+.steps ul{list-style:none}
+.steps ul li{padding:7px 0;border-top:1px dashed var(--line)}
+.steps ul li:first-child{border-top:0;padding-top:0}
+.steps li.hi{background:#120d0c;padding-left:24px;padding-right:24px}
+.steps li.hi .sn{color:var(--red);-webkit-text-stroke:0}
+@media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}.steps>li{border-bottom:1px solid var(--line)}.steps>li:nth-child(2){border-right:0}.steps>li:nth-child(3){padding-left:0}}
+@media (max-width:640px){.steps{grid-template-columns:1fr}.steps>li,.steps>li+li{padding:24px 0;border-right:0}.steps li.hi{padding:24px 20px}}
+@media (max-width:900px){.hero .title:not(.front) .w2{visibility:visible}.hero .lead .w2m{display:none}.hero .lead{margin-top:-10px}}
 </style>
 </head>
 <body>
@@ -571,8 +587,9 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <header class="nav" id="nav">
   <a href="#top" class="logo">ЛИЦО <em>без грима</em><span class="dot blink"></span></a>
   <ul>
-    <li><a href="#guests">Гости</a></li>
+    <li><a href="#how">Как учимся</a></li>
     <li><a href="#faculties">Факультеты</a></li>
+    <li><a href="#guests">Гости</a></li>
     <li><a href="#agency">Агентство</a></li>
     <li><a href="#tickets">Цены</a></li>
   </ul>
@@ -596,10 +613,10 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   <div class="lead">
     <div class="w2m">без грима</div>
     <div class="sub">Школа актёрского мастерства<br>Артура Каспранова</div>
-    <p>Учим играть в&nbsp;кадре актёров, начинающих и&nbsp;всех, кому нужна уверенность перед камерой. Пробы каждую неделю, гости из&nbsp;кино и&nbsp;своё агентство.</p>
+    <p>Учим играть в&nbsp;кадре&nbsp;— с&nbsp;нуля или если ты&nbsp;уже актёр. Пробы каждую неделю, гости из&nbsp;кино и&nbsp;своё актёрское агентство.</p>
     <div class="row">
-      <a href="#faculties" class="btn red">Выбрать факультет</a>
-      <a href="#floors" class="btn">Как устроена школа</a>
+      <a href="#faculties" class="btn red" data-tabgo="2">Я начинаю с нуля</a>
+      <a href="#faculties" class="btn" data-tabgo="3">Я уже актёр</a>
     </div>
     <a href="#video" class="watch"><b></b>Как проходят занятия</a>
   </div>
@@ -613,25 +630,11 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   <div class="f"><b>До 20</b><span>человек в группе</span></div>
   <div class="f"><b>Сертификат</b><span>и тарелка на счастье</span></div>
 </div></div>
-<!-- GUESTS -->
-<section class="sec" id="guests">
-  <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 02</b> Гости курса</div>
-    <h2 class="h2" data-r>Приходят те,<br>кто <em>снимается</em></h2>
-    <p class="intro" data-r="2">Очные мастер-классы ведут действующие актёры, режиссёры и&nbsp;кастинг-директоры. Разбирают ваши работы и&nbsp;рассказывают, как всё устроено на&nbsp;площадке.</p>
-    <div class="guests">
-      <div class="guest" data-r><div class="ph"><img src="img/guests/davydov-v3.jpg" alt="Константин Давыдов" loading="lazy"></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Константин Давыдов</h4><p>Паша в сериале «Чернобыль: Зона отчуждения», «Бесстыдники». Выпускник Щукинского училища.</p></div></div>
-      <div class="guest" data-r="2"><div class="ph"><img src="img/guests/rudakovsky-v3.jpg" alt="Марк Рудаковский" loading="lazy"></div><div class="t"><span class="mono">Актёр и хоккеист</span><h4>Марк Рудаковский</h4><p>Хоккеист и киноактёр из Минска. «Кулинарный техникум», «Капитан Крюк», «Инспектор Гаврилов-2», участник шоу «Титаны».</p></div></div>
-      <div class="guest noph" data-r="3"><div class="ph"><b>ИО</b></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Игорь Ознобихин</h4><p>Звезда сериала «Реальные пацаны».</p></div></div>
-      <div class="guest more" data-r="4"><b>+</b><h4>И другие гости потока</h4><p>Актёры, режиссёры и кастинг-директоры. Имена объявляем перед стартом.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- ABOUT -->
 <section class="sec about" id="about">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 03</b> Кто ведёт</div>
+    <div class="slate-h mono">Кто ведёт</div>
     <h2 class="h2" data-r>Десять лет на льду.<br>Потом <em>сцена</em></h2>
     <div class="grid">
       <div class="shots">
@@ -663,73 +666,49 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-<!-- VIDEO -->
-<section class="sec vid" id="video" style="padding-top:0">
+<!-- GUESTS -->
+<section class="sec" id="guests" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 04</b> На площадке</div>
-    <h2 class="h2" data-r>Как проходят <em>занятия</em></h2>
-  </div>
-  <div class="clips" id="clips">
-    <div class="track">
-        <div class="rev clip" data-r><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
-        <div class="rev clip" data-r><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
-        <div class="rev clip" data-r><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
-        <div class="rev clip" data-r><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
-        <div class="rev clip" data-r><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
-        <div class="rev clip" data-r><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
-        <div class="rev clip" aria-hidden="true"><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
+    <div class="slate-h mono">Гости курса</div>
+    <h2 class="h2" data-r>Приходят те,<br>кто <em>снимается</em></h2>
+    <p class="intro" data-r="2">Очные мастер-классы ведут действующие актёры, режиссёры и&nbsp;кастинг-директоры. Разбирают ваши работы и&nbsp;рассказывают, как всё устроено на&nbsp;площадке.</p>
+    <div class="guests">
+      <div class="guest" data-r><div class="ph"><img src="img/guests/davydov-v3.jpg" alt="Константин Давыдов" loading="lazy"></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Константин Давыдов</h4><p>Паша в сериале «Чернобыль: Зона отчуждения», «Бесстыдники». Выпускник Щукинского училища.</p></div></div>
+      <div class="guest" data-r="2"><div class="ph"><img src="img/guests/rudakovsky-v3.jpg" alt="Марк Рудаковский" loading="lazy"></div><div class="t"><span class="mono">Актёр и хоккеист</span><h4>Марк Рудаковский</h4><p>Хоккеист и киноактёр из Минска. «Кулинарный техникум», «Капитан Крюк», «Инспектор Гаврилов-2», участник шоу «Титаны».</p></div></div>
+      <div class="guest noph" data-r="3"><div class="ph"><b>ИО</b></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Игорь Ознобихин</h4><p>Звезда сериала «Реальные пацаны».</p></div></div>
+      <div class="guest more" data-r="4"><b>+</b><h4>И другие гости потока</h4><p>Актёры, режиссёры и кастинг-директоры. Имена объявляем перед стартом.</p></div>
     </div>
   </div>
 </section>
 
-<!-- FLOORS -->
-<section class="sec" id="floors">
+<!-- HOW -->
+<section class="sec how" id="how">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 05</b> Как устроена школа</div>
-    <h2 class="h2" data-r>Два этажа.<br>Выше поднимаются <em>не все</em></h2>
-    <p class="intro" data-r="2">Начинаешь на&nbsp;своём факультете. После финальной работы Артур смотрит работы потока и&nbsp;берёт лучших в&nbsp;агентство. Оттуда дорога на&nbsp;настоящие пробы.</p>
-    <div class="floors">
-      <div class="lift" aria-hidden="true"><i></i></div>
-      <div class="floor top" data-r>
-        <div class="n">02</div>
-        <div><div class="k mono">Этаж 02 · Агентство</div><h3>Дорога на пробы в кино, сериалы и рекламу</h3><p>Актёрская база, подбор под запросы кастингов и&nbsp;помощь в&nbsp;записи самопроб. Сюда попадают лучшие выпускники факультетов.</p><span class="lock mono">● по приглашению Артура</span></div>
-        <div class="meta"><div><span>Формат</span><b>Личное ведение</b></div><div><span>Кто</span><b>Лучшие выпускники</b></div><div><span>Условия</span><b>Комиссия с гонорара</b></div></div>
-      </div>
-      <div class="floor" data-r>
-        <div class="n">01</div>
-        <div><div class="k mono">Этаж 01 · Факультеты</div><h3>Группы, 3 месяца</h3><p>Четыре факультета: для экспертов, блогеров, начинающих и&nbsp;действующих актёров. Уроки Артура в&nbsp;записи, очные мастер-классы с&nbsp;гостями, разбор каждой пробы и&nbsp;именной сертификат.</p></div>
-        <div class="meta"><div><span>Длительность</span><b>3 месяца</b></div><div><span>Формат</span><b>Уроки в записи + очные мастер-классы</b></div><div><span>Разборы</span><b>Труппы по 8 человек</b></div><div><span>Итог</span><b>Сертификат</b></div></div>
-      </div>
-    </div>
+    <div class="slate-h mono">Путь ученика</div>
+    <h2 class="h2" data-r>Как устроено<br><em>обучение</em></h2>
+    <p class="intro" data-r="2">Основная работа идёт в&nbsp;группах. Путь один и&nbsp;для тех, кто начинает с&nbsp;нуля, и&nbsp;для действующих актёров. Отличается только программа факультета.</p>
+    <ol class="steps">
+      <li data-r><span class="sn">01</span><h3>Выбираешь факультет</h3><p>«Старт», если никогда не&nbsp;учился актёрству. «Профи», если ты&nbsp;уже актёр. «В&nbsp;кадре» для экспертов и&nbsp;спикеров, «Рилс» для блогеров.</p></li>
+      <li data-r="2"><span class="sn">02</span><h3>3&nbsp;месяца учишься в&nbsp;группе</h3><ul><li>Каждую неделю новый урок Артура в&nbsp;записи</li><li>Практика с&nbsp;куратором: этюды, сцены, работа в&nbsp;парах</li><li>Самопроба на&nbsp;телефон и&nbsp;честный разбор в&nbsp;группе из&nbsp;восьми человек</li><li>Очные мастер-классы с&nbsp;Артуром и&nbsp;гостями</li></ul></li>
+      <li data-r="3"><span class="sn">03</span><h3>Снимаешь финальную работу</h3><p>Монолог, сцена или серия роликов, в&nbsp;зависимости от&nbsp;факультета. Артур её&nbsp;разбирает, а&nbsp;ты получаешь именной сертификат.</p></li>
+      <li class="hi" data-r="4"><span class="sn">04</span><h3>Лучших берём в&nbsp;актёрское агентство</h3><p>Если ты&nbsp;хорошо проявил себя на&nbsp;курсе, Артур приглашает тебя в&nbsp;агентство школы. Кастинг-директор отправляет твоё портфолио на&nbsp;кастинги кино, сериалов и&nbsp;рекламы.</p></li>
+    </ol>
   </div>
 </section>
 
 <!-- FACULTIES -->
 <section class="sec" id="faculties" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 06</b> Этаж 01 · Факультеты</div>
-    <h2 class="h2" data-r>Четыре факультета.<br>Одна <em>камера</em></h2>
-    <p class="intro" data-r="2">Каждый факультет длится 3&nbsp;месяца. Уроки Артура в&nbsp;записи: смотришь, когда удобно, и&nbsp;сразу делаешь упражнения на&nbsp;камеру. Мастер-классы с&nbsp;Артуром и&nbsp;гостями проходят очно. В&nbsp;конце снимаешь финальную работу, Артур её&nbsp;разбирает, и&nbsp;ты получаешь именной сертификат.</p>
+    <div class="slate-h mono">Факультеты</div>
+    <h2 class="h2" data-r>Выбери свой<br><em>факультет</em></h2>
+    <p class="intro" data-r="2">Все факультеты идут 3&nbsp;месяца в&nbsp;группе по&nbsp;одной схеме. Отличается программа: выбери ту, что про тебя.</p>
     <div class="notonly" data-r="2"><b>Не только для тех, кто хочет в&nbsp;кино.</b> Уверенность, речь и&nbsp;свобода перед камерой нужны всем: врачам, предпринимателям, тем, кто выступает и&nbsp;ведёт блог. Многие приходят за&nbsp;этим, а&nbsp;не&nbsp;за&nbsp;ролью.</div>
 
     <div class="tabs" role="tablist">
                   <button class="tab on" role="tab" data-f="0"><div class="clap"></div><span class="no mono">Факультет 01</span><b>В кадре</b><small>Эксперты и спикеры</small></button>
       <button class="tab" role="tab" data-f="1"><div class="clap"></div><span class="no mono">Факультет 02</span><b>Рилс</b><small>Блогеры и креаторы</small></button>
-      <button class="tab" role="tab" data-f="2"><div class="clap"></div><span class="no mono">Факультет 03</span><b>Старт</b><small>Актёры с нуля</small></button>
-      <button class="tab" role="tab" data-f="3"><div class="clap"></div><span class="no mono">Факультет 04</span><b>Профи</b><small>Действующие актёры</small></button>
+      <button class="tab" role="tab" data-f="2"><div class="clap"></div><span class="no mono">Факультет 03</span><b>Старт</b><small>Никогда не учился актёрству</small></button>
+      <button class="tab" role="tab" data-f="3"><div class="clap"></div><span class="no mono">Факультет 04</span><b>Профи</b><small>Уже актёр</small></button>
     </div>
 
     <!-- 01 -->
@@ -814,26 +793,10 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   </div>
 </section>
 
-<!-- WEEK -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 07</b> Неделя на факультете</div>
-    <h2 class="h2" data-r>Как на тренировке.<br>Каждую <em>неделю</em></h2>
-    <p class="intro" data-r="2">А&nbsp;ещё очные мастер-классы с&nbsp;Артуром и&nbsp;гостями по&nbsp;расписанию потока.</p>
-    <div class="week">
-      <div class="day" data-r><span class="tc"></span><span class="mono">Пн</span><h4>Урок</h4><p>Новый урок Артура в&nbsp;записи: тема и&nbsp;сразу упражнения на&nbsp;камеру. Смотришь, когда удобно.</p></div>
-      <div class="day" data-r="2"><span class="tc"></span><span class="mono">Чт</span><h4>Практика</h4><p>Практика с&nbsp;куратором: этюды, сцены, работа в&nbsp;парах.</p></div>
-      <div class="day" data-r="3"><span class="tc"></span><span class="mono">Пт</span><h4>Самопроба</h4><p>Домашнее задание: снимаешь дубль на телефон и сдаёшь в платформу.</p></div>
-      <div class="day" data-r="4"><span class="tc"></span><span class="mono">Сб–Вс</span><h4>Разбор</h4><p>Труппа из восьми человек, куратор и честный разбор каждого дубля. Без «всё классно».</p></div>
-    </div>
-  </div>
-</section>
-
-
 <!-- TAKEAWAY -->
 <section class="sec" id="takeaway" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 08</b> С чем уйдёшь</div>
+    <div class="slate-h mono">С чем уйдёшь</div>
     <h2 class="h2" data-r>Портфолио<br><em>на руках</em></h2>
     <div class="take">
       <div>
@@ -857,7 +820,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- AGENCY -->
 <section class="sec agency" id="agency">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 09</b> Этаж 02 · Агентство</div>
+    <div class="slate-h mono">Актёрское агентство</div>
     <p class="big" data-r>Мы не обещаем роли. Мы готовим к пробам так, чтобы <u>шанс был твоим</u></p>
     <div class="wins" data-r><span class="mono">Уже снимаются</span><p>Мы этого не&nbsp;обещали, но&nbsp;после первого, месячного курса ученики уже попали в&nbsp;кино. Ученица играет жену графа в&nbsp;новом фильме. Ученик едет в&nbsp;Петербург на&nbsp;съёмки проекта для Пятого канала. Названия проектов пока раскрыть нельзя.</p></div>
     <div class="toag" data-r><p>Агентство ведёт <strong>опытный кастинг-директор</strong>, который каждый день подбирает актёров в кино и сериалы. Здесь будут висеть ваши портфолио, которые мы отправляем на кастинги.</p><a href="agency.html" class="btn red">Актёрское агентство →</a></div>
@@ -865,11 +828,34 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   </div>
 </section>
 
+<!-- VIDEO -->
+<section class="sec vid" id="video" style="padding-top:0">
+  <div class="wrap">
+    <div class="slate-h mono">На площадке</div>
+    <h2 class="h2" data-r>Как проходят <em>занятия</em></h2>
+  </div>
+  <div class="clips" id="clips">
+    <div class="track">
+        <div class="rev clip" data-r><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
+        <div class="rev clip" data-r><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/promo.mp4" poster="img/promo-poster.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: как проходят занятия"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p1.mp4" poster="img/process/p1.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Совет от актёра сериала «Чернобыль: Зона отчуждения»"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p2.mp4" poster="img/process/p2.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Обратная связь: Марк Рудаковский"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p3.mp4" poster="img/process/p3.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Артур: проблема всех начинающих актёров"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p4.mp4" poster="img/process/p4.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Интересно смотреть за артистом"><i></i></button></div>
+        <div class="rev clip" aria-hidden="true"><video src="img/process/p5.mp4" poster="img/process/p5.jpg" preload="none" playsinline></video><button class="vplay" type="button" tabindex="-1" aria-label="Смотреть: Звезда сериала «Чернобыль: Зона отчуждения» про внимание"><i></i></button></div>
+    </div>
+  </div>
+</section>
 
 <!-- REVIEWS -->
 <section class="sec" id="reviews" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 10</b> Отзывы учеников</div>
+    <div class="slate-h mono">Отзывы учеников</div>
     <h2 class="h2" data-r>Говорят те,<br>кто уже <em>прошёл</em></h2>
     <div class="revs">
       <div class="rev" data-r><video src="img/otzyvy/zinovyeva.mp4" poster="img/otzyvy/zinovyeva.jpg" preload="none" playsinline></video><button class="vplay" type="button" aria-label="Смотреть отзыв: Вика Зиновьева"><i></i></button></div>
@@ -885,7 +871,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- TICKETS -->
 <section class="sec" id="tickets">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 11</b> Этаж 01 · Билеты на поток</div>
+    <div class="slate-h mono">Цены</div>
     <h2 class="h2" data-r>Выбери <em>место</em><br>в зале</h2>
     <div class="tickets">
       <div class="ticket hot" data-r="2">
@@ -908,7 +894,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- FAQ -->
 <section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 12</b> Вопросы из зала</div>
+    <div class="slate-h mono">Вопросы из зала</div>
     <div class="faq">
       <details><summary>Нужен ли опыт?</summary><p>Нет. «В кадре», «Рилс» и «Старт» рассчитаны на людей без актёрской подготовки. «Профи» для тех, у кого она уже есть.</p></details>
       <details><summary>Сколько времени в неделю?</summary><p>Четыре-пять часов: урок в&nbsp;записи, практика, одна самопроба и&nbsp;разбор в&nbsp;труппе на&nbsp;выходных.</p></details>
@@ -924,7 +910,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- APPLY -->
 <section class="sec apply" id="apply">
   <div class="wrap">
-    <div class="slate-h mono"><b>Сцена 13</b> Заявка</div>
+    <div class="slate-h mono">Заявка</div>
     <h2 class="h2" data-r>Сними <em>грим.</em><br>Включи камеру</h2>
     <div class="grid">
       <div class="side" data-r>
@@ -961,7 +947,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="roll">
       <div data-r><div class="role">Художественный руководитель</div><div class="name">Артур Каспранов</div></div>
       <div data-r><div class="role">Факультеты</div><div class="name">В кадре · Рилс · Старт · Профи</div></div>
-      <div data-r><div class="role">Этажи</div><div class="name">Факультеты · Агентство</div></div>
+      <div data-r><div class="role">Путь</div><div class="name">Группа · Финальная работа · Агентство</div></div>
       <div data-r><div class="role">В главной роли</div><div class="name" style="color:var(--red2)">Ты</div></div>
     </div>
     <div class="end" data-r>ЛИЦО<span class="dot blink"></span><em>без грима</em></div>
@@ -1026,6 +1012,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   var tabs=[].slice.call(document.querySelectorAll('.tab')),facs=[].slice.call(document.querySelectorAll('.fac'));
   function setTab(i){tabs.forEach(function(t,j){t.classList.toggle('on',i===j);t.setAttribute('aria-selected',i===j)});facs.forEach(function(f,j){f.classList.toggle('on',i===j)})}
   tabs.forEach(function(t){t.addEventListener('click',function(){setTab(+t.dataset.f)})});
+  document.querySelectorAll('[data-tabgo]').forEach(function(b){b.addEventListener('click',function(){setTab(+b.dataset.tabgo)})});
   document.querySelectorAll('[data-pick]').forEach(function(b){b.addEventListener('click',function(){var r=document.getElementById('f'+b.dataset.pick);if(r)r.checked=true})});
   document.querySelectorAll('[data-tier]').forEach(function(b){b.addEventListener('click',function(){document.querySelector('select[name=tier]').value=b.dataset.tier})});
 
