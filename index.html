@@ -596,6 +596,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .pain-out{margin-top:24px;font:800 clamp(22px,2.4vw,32px)/1.1 var(--cond);text-transform:uppercase;max-width:900px}
 @media (max-width:1000px){.usp-steps{grid-template-columns:1fr 1fr}.pain-grid,.fear-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.usp-steps,.pain-grid,.fear-grid{grid-template-columns:1fr}}
+.hero .quote{text-shadow:0 2px 14px rgba(0,0,0,.95),0 0 30px rgba(0,0,0,.8)}
 </style>
 </head>
 <body>
@@ -624,7 +625,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <!-- HERO -->
 <section class="hero" aria-label="Лицо без грима — школа актёрского мастерства Артура Каспранова">
   <h1 class="title"><span class="in"><span class="w1">ЛИЦО</span><span class="w2">без грима</span></span></h1>
-  <img class="who" src="img/arthur-v2.webp" alt="Артур Каспранов, актёр театра и кино" fetchpriority="high">
+  <img class="who" src="img/arthur-v3.webp" alt="Артур Каспранов, актёр театра и кино" fetchpriority="high">
   <div class="rim"></div>
   <div class="title front" aria-hidden="true"><span class="in"><span class="w1">ЛИЦО</span><span class="w2">без грима</span></span></div>
   <div class="vf" aria-hidden="true">
@@ -635,7 +636,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
   </div>
   <div class="lead">
     <div class="w2m">без грима</div>
-    <div class="sub">Школа актёрского мастерства<br>Артура Каспранова</div>
+    <div class="sub">Киношкола для тех,<br>кто хочет играть круче</div>
     <p>Учим играть в&nbsp;кадре&nbsp;— с&nbsp;нуля или если ты&nbsp;уже актёр. Пробы каждую неделю, гости из&nbsp;кино и&nbsp;своё актёрское агентство.</p>
     <div class="row">
       <a href="#faculties" class="btn red" data-tabgo="2">Я начинаю с нуля</a>
@@ -650,8 +651,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 <div class="factbar"><div class="wrap">
   <div class="f"><b>3 месяца</b><span>обучение</span></div>
   <div class="f"><b>Ноябрь</b><span>старт потока</span></div>
-  <div class="f"><b>До 20</b><span>человек в группе</span></div>
-  <div class="f"><b>Сертификат</b><span>и тарелка на счастье</span></div>
+  <div class="f"><b>До 12</b><span>человек в группе</span></div>
+  <div class="f"><b>Сертификат</b><span>и тарелка на удачу</span></div>
 </div></div>
 
 
@@ -666,13 +667,12 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <figure class="shot s2" data-r="2"><img src="img/stage.jpg" alt="Артур Каспранов в театре" loading="lazy"><figcaption>Театр · Петербург</figcaption></figure>
       </div>
       <div class="txt">
-        <p data-r>Артур из Уфы. До пятнадцати лет он по десять часов в день стоял на льду в системе «Салавата Юлаева». Потом театральная студия, учёба в Петербурге в Герценовском и роль нападающего <strong>Рената Файзулина в «Молодёжке. Новой смене»</strong>.</p>
+        <p data-r>Артур из Уфы. Больше десяти лет играл в хоккей, а потом выбрал сцену. Учился в студии <strong>Константина Хабенского</strong>, у мастера, который выучил Хабенского, Пореченкова и Раппопорт. Сыграл Рената Файзулина в «Молодёжке. Новой смене» и снялся в «Космос засыпает» с Марком Эйдельштейном.</p>
         <p data-r="2">Из спорта он принёс то, чего не хватает большинству актёрских школ: <strong>режим, повтор и честный счёт</strong>. Здесь учат как на тренировке. Сделал, показал, получил разбор, сделал снова. Пока не станет телом, а не теорией.</p>
-        <p data-r="3">Под роль хоккеиста Артур сбросил десять килограммов и тринадцать часов отыграл на коньках без дублёра. Так же он будет работать с тобой.</p>
         <div class="facts" data-r="3">
           <div><b>10+</b><span>лет профессионального хоккея</span></div>
-          <div><b>−10 кг</b><span>за короткий срок под роль хоккеиста</span></div>
-          <div><b>13 ч</b><span>на коньках без дублёра за одну смену</span></div>
+          <div><b>Хабенский</b><span>учился в студии Константина Хабенского</span></div>
+          <div><b>«Космос»</b><span>«Космос засыпает» вместе с Марком Эйдельштейном («Анора»)</span></div>
           <div><b>2026</b><span>«Ледниковый период», Первый канал</span></div>
         </div>
         <div class="filmo" data-r="4">
@@ -712,8 +712,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
     <div class="slate-h mono">Узнаёшь себя?</div>
     <h2 class="h2" data-r>Ты талантлив,<br>но <em>не снимаешься</em></h2>
     <div class="pain-grid">
-      <div data-r><h4>Камера тебя «не любит»</h4><p>В жизни ты живой и интересный, а в кадре зажимаешься и играешь «на последний ряд».</p></div>
-      <div data-r="2"><h4>Театральный не помогает в кино</h4><p>Станиславского прочитал, а на камеру не работает: в кадре другой способ существования.</p></div>
+      <div data-r><h4>В кадре ты не такой, как в жизни</h4><p>В жизни ты живой и интересный, а перед камерой зажимаешься и теряешь себя.</p></div>
+      <div data-r="2"><h4>Сцена и кадр — разное</h4><p>Театр учит играть на зал. Камере нужно другое: крупный план, глаза, мысль. Этому учатся только на практике.</p></div>
       <div data-r="3"><h4>Без агента не зовут</h4><p>Актёров десятки тысяч, агентств около сотни. Без агента до кастинга не доходишь.</p></div>
       <div data-r><h4>Нечего показать</h4><p>Шоурила нет или он не показывает тебя настоящего. А без материала тебя не видят.</p></div>
       <div data-r="2"><h4>Не понимаешь, как записать пробу</h4><p>Свет, ракурс, партнёр, что вообще играть. Каждый раз на ощупь.</p></div>
@@ -791,7 +791,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <div class="res"><span class="mono">Уходишь с</span><p><b>Базовой школой и первой самопробой.</b> Монолог и сцена на камеру, актёрская визитка и понятный маршрут в профессию.</p></div>
       </div>
       <div class="acts">
-        <div class="act"><span class="mono">Акт I</span><h4>Основа</h4><ol><li>Убираем зажимы</li><li>Как завладеть вниманием</li><li>Играть не чувство, а задачу, как ДиКаприо</li><li>Оправданное молчание</li></ol></div>
+        <div class="act"><span class="mono">Акт I</span><h4>Основа</h4><ol><li>Убираем зажимы</li><li>Играть не чувство, а задачу, как ДиКаприо</li><li>Оправданное молчание</li></ol></div>
         <div class="act"><span class="mono">Акт II</span><h4>Инструменты</h4><ol><li>Сценическая речь и дикция</li><li>Память физических действий</li><li>Партнёр: слушать и отвечать</li><li>Метод разбора проб</li></ol></div>
         <div class="act"><span class="mono">Акт III</span><h4>Профессия</h4><ol><li>Импровизация в деле</li><li>Как устроены кастинги</li><li>Визитка, фото, анкета в базе</li><li>Главная роль и эпизод: в чём разница</li></ol></div>
         <div class="act"><span class="mono">Акт IV</span><h4>Пробы</h4><ol><li>Пробы на русском кино</li><li>Пробы на советском кино</li><li>Голливуд и британское кино</li><li>Разбор каждой пробы</li><li class="fin">Премьера: монолог и сцена на камеру</li></ol></div>
@@ -807,8 +807,8 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <div class="res"><span class="mono">Уходишь с</span><p><b>Глубиной в&nbsp;кадре и&nbsp;новым материалом.</b> Пробы, которые показывают тебя как личность, разбор сильных сторон и&nbsp;понимание, как тебя видит кастинг.</p></div>
       </div>
       <div class="acts">
-        <div class="act"><span class="mono">Акт I</span><h4>Камера</h4><ol><li>Со сцены в кадр: меняем способ существования</li><li>Глубина, как у Юры Борисова: то, что не сыграть словами</li><li>Метод Мейснера через пробу</li><li>Метод Демидова через пробу</li><li>Жанры: драма, комедия, экшн</li></ol></div>
-        <div class="act"><span class="mono">Акт II</span><h4>Пробы</h4><ol><li>Сцены из фильмов, на которых ты вырос</li><li>Главная роль и эпизод: как пробоваться</li><li>Каждая проба мощнее предыдущей</li><li>Разбор каждой пробы с Артуром</li></ol></div>
+        <div class="act"><span class="mono">Акт I</span><h4>Камера</h4><ol><li>Концентрация внимания</li><li>Метод Мейснера через пробу</li><li>Метод Демидова через пробу</li><li>Жанры: драма, комедия, экшн</li></ol></div>
+        <div class="act"><span class="mono">Акт II</span><h4>Пробы</h4><ol><li>Сцены из фильмов, на которых ты вырос</li><li>Главная роль и эпизод: как пробоваться</li><li>Глубина, как у Юры Борисова: то, что не сыграть словами</li><li>Каждая проба мощнее предыдущей</li><li>Разбор каждой пробы с Артуром</li></ol></div>
         <div class="act"><span class="mono">Акт III</span><h4>Карьера</h4><ol><li>Визитка и шоурил: что смотрит кастинг</li><li>Агентства и базы: как с ними работать</li><li>Соцсети актёра</li><li class="fin">Премьера: самопроба под реальную роль</li></ol></div>
       </div>
       <div class="probes">
@@ -871,7 +871,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       </div>
       <div class="keep">
         <figure data-r><img src="img/certificate-v3.jpg" alt="Именной сертификат школы «Лицо без грима»" loading="lazy"><figcaption><b>Именной сертификат</b><p>С подписью Артура. Подтверждает, что ты прошёл программу и сдал «Премьеру». Это сертификат школы, а не государственный диплом.</p></figcaption></figure>
-        <figure data-r="2"><img src="img/plate.jpg" alt="Разбитая на счастье тарелка рядом с хлопушкой" loading="lazy"><figcaption><b>Тарелка на счастье</b><p>Как на съёмочной площадке: в первый день разбиваем тарелку, и каждый забирает свой осколок. В последний день собираем её вместе.</p></figcaption></figure>
+        <figure data-r="2"><img src="img/plate.jpg" alt="Разбитая на удачу тарелка рядом с хлопушкой" loading="lazy"><figcaption><b>Тарелка на удачу</b><p>Традиция съёмочной площадки: в первый день бьём тарелку на удачу, и каждый забирает свой осколок. В последний день собираем её вместе.</p></figcaption></figure>
       </div>
     </div>
   </div>
@@ -939,7 +939,7 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <div data-r="2"><h4>«У меня нет опыта»</h4><p>Для этого есть «Старт». Начинаем с нуля: зажимы, внимание, первая проба.</p></div>
       <div data-r="3"><h4>«Актёрству нельзя научиться онлайн»</h4><p>Согласны. Поэтому мастер-классы и пробы с оператором и светом проходят очно, а в записи только короткие уроки.</p></div>
       <div data-r><h4>«А вдруг не получится»</h4><p>После первого, месячного курса ученики уже снимаются: одна играет жену графа, другой едет на съёмки в Петербург.</p></div>
-      <div data-r="2"><h4>«Это дорого»</h4><p>Рассрочка от 2 909 ₽ в месяц. Это меньше 3 000 ₽ в неделю за практику на камеру, пробы и разборы.</p></div>
+      <div data-r="2"><h4>«Это дорого»</h4><p>Рассрочка от 2 909 ₽ в месяц. Это меньше 3 000 ₽ в неделю за практику на камеру, пробы и разборы.</p></div>
       <div data-r="3"><h4>«Мне не в кино, мне для себя»</h4><p>Тоже к нам. Уверенность, речь и свобода перед камерой нужны всем, кто выступает и ведёт блог.</p></div>
     </div>
   </div>
@@ -955,13 +955,13 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
         <div class="hd"><span class="mono">Билет</span><span class="row">РЯД 5 · МЕСТО 8</span></div>
         <div class="bd"><h4>Партер</h4><ul><li>Уроки Артура в записи каждую неделю</li><li>Очные мастер-классы с гостями</li><li>Практики с куратором</li><li>Труппа из 8 человек</li><li>Разбор каждой самопробы</li><li>«Премьера» и сертификат</li></ul></div>
         <div class="bc"></div>
-        <div class="ft"><div class="price">34 900<small>₽</small><span class="inst">или 12 × 2 909 ₽</span></div><a href="https://t.me/lizobezgrima_bot?start=buy_t0" target="_blank" rel="noopener" class="go">Взять</a></div>
+        <div class="ft"><div class="price">34 900<small>₽</small><span class="inst">или 12 × 2 909 ₽</span></div><a href="https://t.me/lizobezgrima_bot?start=buy_t0" target="_blank" rel="noopener" class="go">Взять</a></div>
       </div>
       <div class="ticket" data-r="3">
         <div class="hd"><span class="mono">Билет</span><span class="row">РЯД 1 · МЕСТО 1</span></div>
         <div class="bd"><h4>Первый ряд</h4><ul><li>Всё из «Партера»</li><li>2 личных разбора с Артуром</li><li>Разбор «Премьеры» лично</li><li>Приоритет при отборе в агентство</li><li>Мест в потоке: 10</li></ul></div>
         <div class="bc"></div>
-        <div class="ft"><div class="price">69 900<small>₽</small><span class="inst">или 12 × 5 825 ₽</span></div><a href="https://t.me/lizobezgrima_bot?start=buy_t1" target="_blank" rel="noopener" class="go">Взять</a></div>
+        <div class="ft"><div class="price">69 900<small>₽</small><span class="inst">или 12 × 5 825 ₽</span></div><a href="https://t.me/lizobezgrima_bot?start=buy_t1" target="_blank" rel="noopener" class="go">Взять</a></div>
       </div>
     </div>
     <p class="instnote" data-r>Можно частями: рассрочка на 12 месяцев через Т-Банк, Сбер или Продамус. Точные условия подтвердим, когда свяжемся после заявки.</p>
