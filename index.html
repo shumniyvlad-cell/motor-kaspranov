@@ -465,11 +465,11 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
 .clips{margin-top:40px;overflow:hidden;--cw:calc((min(100vw,var(--max)) - 2*var(--pad) - 42px)/4);-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .clips .track{display:flex;gap:14px;width:max-content;padding:0 14px 0 0}
 .clips .rev.clip{width:var(--cw);flex:none}
-.motion .clips .track{animation:clipsMove 54s linear infinite}
+.clips{overflow-x:auto;scrollbar-width:none}.clips::-webkit-scrollbar{display:none}.clips .clip[aria-hidden]{display:none}
 .clips:hover .track,.clips.playing .track{animation-play-state:paused}
 @keyframes clipsMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (max-width:1000px){.clips{--cw:calc((100vw - 2*var(--pad) - 28px)/2.6)}}
-@media (max-width:700px){.clips{--cw:58vw}.motion .clips .track{animation-duration:42s}}
+@media (max-width:700px){.clips{--cw:58vw}}
 
 /* полоса фактов */
 .factbar{border-bottom:1px solid var(--line);background:var(--ink)}
@@ -700,6 +700,9 @@ select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,va
       <div class="guest" data-r><div class="ph"><img src="img/guests/davydov-v3.jpg" alt="Константин Давыдов" loading="lazy"></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Константин Давыдов</h4><p>Паша в сериале «Чернобыль: Зона отчуждения», «Бесстыдники». Выпускник Щукинского училища.</p></div></div>
       <div class="guest" data-r="2"><div class="ph"><img src="img/guests/rudakovsky-v3.jpg" alt="Марк Рудаковский" loading="lazy"></div><div class="t"><span class="mono">Актёр и хоккеист</span><h4>Марк Рудаковский</h4><p>Хоккеист и киноактёр из Минска. «Кулинарный техникум», «Капитан Крюк», «Инспектор Гаврилов-2», участник шоу «Титаны».</p></div></div>
       <div class="guest" data-r="3"><div class="ph"><img src="img/guests/oznobikhin.jpg" alt="Игорь Ознобихин" loading="lazy"></div><div class="t"><span class="mono">Актёр театра и кино</span><h4>Игорь Ознобихин</h4><p>Звезда сериала «Реальные пацаны».</p></div></div>
+      <div class="guest" data-r><div class="ph"><img src="img/guests/vereshchagin.jpg" alt="Владимир Верещагин" loading="lazy"></div><div class="t"><span class="mono">Продюсер</span><h4>Владимир Верещагин</h4><p>Больше десяти лет работал в Disney в России, один из продюсеров «Последнего богатыря». Руководит семейным контентом на «Кинопоиске».</p></div></div>
+      <div class="guest" data-r="2"><div class="ph"><img src="img/guests/ovchinnikov.jpg" alt="Егор Овчинников" loading="lazy"></div><div class="t"><span class="mono">Актёр</span><h4>Егор Овчинников</h4><p>Сериалы «Телохранители», «Кукушкин».</p></div></div>
+      <div class="guest" data-r="3"><div class="ph"><img src="img/guests/poplavskaya.jpg" alt="Ангелина Поплавская" loading="lazy"></div><div class="t"><span class="mono">Актриса театра и кино</span><h4>Ангелина Поплавская</h4><p>Кристина в сериале «Дылды», главная роль в «Алиса против правил», Таня Мещерская в «Арбатских тайнах». Выпускница Школы-студии МХАТ.</p></div></div>
       <div class="guest more" data-r="4"><b>+</b><h4>И другие гости потока</h4><p>Актёры, режиссёры и кастинг-директоры. Имена объявляем перед стартом.</p></div>
     </div>
   </div>
